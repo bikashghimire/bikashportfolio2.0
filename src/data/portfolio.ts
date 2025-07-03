@@ -1,26 +1,43 @@
 export const personalInfo = {
-  name: "Alex Thompson",
-  title: "Senior Software Developer",
+  name: "Bikash Ghimire",
+  title: "Software Developer",
   tagline: "Building exceptional web experiences with modern technologies",
   bio: "Passionate software developer with 5+ years of experience creating scalable web applications. I specialize in React, TypeScript, and cloud technologies, with a track record of delivering high-quality solutions across diverse industries.",
-  location: "San Francisco, CA",
-  email: "alex.thompson@email.com",
-  phone: "+1 (555) 123-4567",
-  website: "https://alexthompson.dev",
-  github: "https://github.com/alexthompson",
-  linkedin: "https://linkedin.com/in/alexthompson",
-  twitter: "https://twitter.com/alexthompson"
+  location: "Helsinki, Finland",
+  email: "bikashghimire@2610.com",
+  website: "https://bikashghimire.dev",
+  github: "https://github.com/bikashghimire",
+  linkedin: "https://linkedin.com/in/bikashghimire",
+  twitter: "https://twitter.com/bikashghimire"
 };
 
 export const experience = [
   {
     id: 1,
-    company: "TechCorp Solutions",
-    position: "Senior Software Developer",
-    duration: "2022 - Present",
-    location: "San Francisco, CA",
-    description: "Lead development of enterprise-scale React applications serving 100k+ users. Implemented microservices architecture and improved application performance by 40%.",
-    technologies: ["React", "TypeScript", "Node.js", "AWS", "Docker", "GraphQL"],
+    company: "Datadrivers Oy",
+    position: " Software Developer",
+    duration: "2025 Mar - Present",
+    location: "Helsinki, Finland",
+    description:  "Architected an enterprise-grade design system from the ground up, driving UI/UX consistency across multiple product lines and significantly improving development velocity. Spearheaded front-end R&D initiatives by evaluating next-generation frameworks and authoring Architecture Decision Records (ADRs) to guide scalable component library selection. Developed a comprehensive, accessible, and performant component library using TypeScript, React, and Tailwind CSS. Established robust development infrastructure including Storybook documentation, design tokens, and automated testing frameworks. Collaborated cross-functionally with product, design, and backend teams to deliver seamless user experiences for flagship platforms such as Webauto and Fleetskills. Additionally, mentored teams on modern front-end best practices, component-driven development, and CI/CD workflows.",
+
+    technologies: [
+      "JavaScript",
+      "React",
+      "Storybook",
+      "TypeScript",
+      "Web Components",
+      "SASS",
+      "Jest",
+      "Azure",
+      "Azure DevOps",
+      "Tailwind CSS",
+      "Material UI",
+      "Git",
+      "CI/CD",
+      "shadcn/ui",
+      "Next.js",
+      "Figma",
+    ],
     achievements: [
       "Led team of 5 developers in building customer portal",
       "Reduced deployment time by 60% through CI/CD optimization",
@@ -29,12 +46,25 @@ export const experience = [
   },
   {
     id: 2,
-    company: "InnovateLabs",
-    position: "Full Stack Developer",
-    duration: "2021 - 2022",
-    location: "Austin, TX",
-    description: "Developed and maintained multiple client projects using React, Node.js, and PostgreSQL. Collaborated with design teams to create pixel-perfect user interfaces.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Redis", "Jest", "Figma"],
+    company: "Metso",
+    position: "Software Developer",
+    duration: "May 2023 - Jan 2024",
+    location: "Espoo, Finland",
+    description: " At Metso, I led the development of scalable design system UI libraries, including a React-based framework and a framework-agnostic web components library, collectively achieving 100,000+ npm downloads. I ensured components were reusable, accessible, and performance-optimized, adhering to WCAG standards and collaborating with cross-functional teams. My work on the design system earned recognition at the Metso Innovation Award 2024 for its impact on UI/UX standardization and scalability. Additionally, I developed AI-driven solutions in Azure using OpenAI Studio, integrated CI/CD workflows, and deployed static web applications.",
+
+    technologies:[
+      "JavaScript",
+      "React",
+      "Storybook",
+      "TypeScript",
+      "Web Components",
+      "SASS",
+      "Jest",
+      "Azure",
+      "Azure OpenAI Studio",
+      "CI/CD",
+      "Figma",
+    ],
     achievements: [
       "Built 8 client projects from concept to production",
       "Achieved 95% test coverage across all projects",
@@ -43,12 +73,12 @@ export const experience = [
   },
   {
     id: 3,
-    company: "StartupHub",
-    position: "Frontend Developer",
-    duration: "2020 - 2021",
-    location: "Remote",
-    description: "Focused on creating responsive web applications and improving user experience. Worked closely with UX designers to implement interactive components.",
-    technologies: ["React", "JavaScript", "SCSS", "Webpack", "Storybook"],
+    company: "Funky Salsa Oy",
+    position: "Web Developer",
+    duration: "Aug 2022 - Mar 2023",
+    location: "Helsinki, Finland",
+    description:       " Developed an order-handling web application with modern features from scratch using modern features and practices",
+    technologies: ["SASS", "JavaScript", "React", "Firebase"],
     achievements: [
       "Increased user engagement by 35% through UX improvements",
       "Created reusable component library used across 3 products",
@@ -57,48 +87,58 @@ export const experience = [
   },
   {
     id: 4,
-    company: "WebSolutions Inc",
-    position: "Junior Developer",
-    duration: "2019 - 2020",
-    location: "New York, NY",
-    description: "Developed responsive websites and web applications using modern JavaScript frameworks. Gained experience in agile development methodologies.",
-    technologies: ["JavaScript", "React", "PHP", "MySQL", "Bootstrap"],
-    achievements: [
-      "Completed 15+ client websites with 100% satisfaction rate",
-      "Learned React and modern JavaScript best practices",
-      "Participated in daily standups and sprint planning"
-    ]
+  company: "Integrify Oy",
+    position: "Full Stack Developer",
+  duration: "January 2022 - June 2022",
+  location: "Helsinki, Finland",
+  description: "Joined through the six-month intensive full-stack program for modern web development with the stacks of React, TypeScript, NodeJS, MongoDB, SQL & PostgreSQL with the role of Full stack developer.",
+  technologies: ["HTML", "CSS", "JavaScript", "React", "MongoDB"],
+  achievements: [
+    "Completed 3 full-stack projects in a team of 5",
+    "Gained hands-on experience with Agile methodologies",
+    "Developed RESTful APIs and integrated third-party services"
+  ]
   },
   {
     id: 5,
-    company: "Digital Agency Pro",
-    position: "Web Developer Intern",
-    duration: "2018 - 2019",
-    location: "Los Angeles, CA",
-    description: "Started career as an intern, learning fundamental web development skills and working on small client projects under supervision.",
-    technologies: ["HTML", "CSS", "JavaScript", "WordPress", "jQuery"],
-    achievements: [
-      "Built 5 WordPress websites from scratch",
-      "Learned version control with Git and GitHub",
-      "Gained foundational knowledge in web development"
-    ]
+  company: "Centria University of Applied Sciences",
+  position: "Software Developer Intern",
+  duration: "July 2021 - December 2021",
+  location: "Kokkola, Finland",
+  description: "During my six-month internship at Centria University of Applied Sciences in Kokkola, I engaged in two significant projects, one in Game Development and the other in Web Development. In the Game Development project, I collaborated with a team to create an interactive game using C++ and Unity, focusing on gameplay mechanics and user experience. In the Web Development project, I developed a web application using HTML, CSS, JavaScript, PHP, and MySQL, implementing features such as user authentication and database management. This internship provided me with valuable hands-on experience in both game and web development, enhancing my technical skills and teamwork abilities.",
+  technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "C++", "Arduino", "Raspberry Pi", "Agile Methodology"],
+  achievements: [
+    "Developed a web application with user authentication",
+    "Created an interactive game using C++ and Unity",      
+    "Implemented database management features in PHP and MySQL"
+  ]
   }
 ];
+
 
 export const education = [
   {
     id: 1,
-    institution: "Stanford University",
-    degree: "Master of Science in Computer Science",
-    duration: "2016 - 2018",
-    location: "Stanford, CA",
-    gpa: "3.8/4.0",
+    institution: "Åbo Akademi University",
+    degree:       "Masters Degree in Information Technology, Computer Software Engineering",
+
+    duration: "2023 - 2025",
+    location: "Turku, Finland",
     coursework: [
-      "Advanced Algorithms",
+       "Artificial Intelligence",
+      "Software Quality",
       "Machine Learning",
-      "Software Engineering",
-      "Database Systems",
-      "Computer Networks"
+      "Web Technologies",
+      "System Safety",
+      "Project Course",
+      "Autonomic Software and System",
+      "Tools for Reliable Software Construction",
+      "Cloud Computing",
+      "Code Optimisation",
+      "Research Method in Computer Science and Engineering",
+      "Data Science",
+      "Software Construction",
+      "Analytics for Industrial Internet",
     ],
     achievements: [
       "Dean's List for 3 consecutive semesters",
@@ -108,17 +148,26 @@ export const education = [
   },
   {
     id: 2,
-    institution: "University of California, Berkeley",
-    degree: "Bachelor of Science in Computer Science",
-    duration: "2012 - 2016",
-    location: "Berkeley, CA",
-    gpa: "3.7/4.0",
+    institution: "Centria University of Applied Sciences",
+    degree:
+      "Bachelor's degree in Information Technology, Computer Software Engineering",
+    duration: "Aug 2017 - Dec 2021",
+    location: "Kokkola, Finland",
     coursework: [
-      "Data Structures",
-      "Computer Architecture",
-      "Operating Systems",
-      "Software Engineering",
-      "Web Development"
+      "Extent of Studies : 240 Cr.",
+      "Completed Studies : 275 Cr.",
+      "Software Engineering, Mathematics, Physics and Chemistry",
+      "Algorithm and Data Structure",
+      "Modeling Techniques, Object-Oriented Programming & Modelling",
+      "Mobile Software Development I & II",
+      "Embedded Software",
+      "Software Project",
+      "Agile Methodology",
+      "Android Programming",
+      "C, C++, Java, JavaScript, HTML, CSS, SQL, C#(ASP.NET)",
+      "IP Networks, CCNA1, Security, Routing and Switching essentials",
+      "Netbeans, Microsoft Visual Studio",
+      "Project Management",
     ],
     achievements: [
       "Graduated Magna Cum Laude",

@@ -43,12 +43,7 @@ const Education: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="mb-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-sm font-medium text-black dark:text-white">GPA:</span>
-                      <Badge variant="secondary" className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-0">{edu.gpa}</Badge>
-                    </div>
-                  </div>
+                
 
                   <div className="mb-6">
                     <h5 className="font-semibold mb-3 text-black dark:text-white">Key Coursework</h5>
