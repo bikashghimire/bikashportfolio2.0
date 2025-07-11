@@ -47,71 +47,84 @@ export const experience = [
   {
     id: 2,
     company: "Metso",
-    position: "Software Developer",
-    duration: "May 2023 - Jan 2024",
-    location: "Espoo, Finland",
-    description: " At Metso, I led the development of scalable design system UI libraries, including a React-based framework and a framework-agnostic web components library, collectively achieving 100,000+ npm downloads. I ensured components were reusable, accessible, and performance-optimized, adhering to WCAG standards and collaborating with cross-functional teams. My work on the design system earned recognition at the Metso Innovation Award 2024 for its impact on UI/UX standardization and scalability. Additionally, I developed AI-driven solutions in Azure using OpenAI Studio, integrated CI/CD workflows, and deployed static web applications.",
+    position: "Software Engineer",
+    duration: "May 2023 - Jan 2025",
+    location: "Espoo, Finland (Hybrid)",
+    description: "At Metso, a global leader in sustainable technologies for aggregates, minerals processing, and metals refining industries, I contributed to developing and maintaining a scalable design system that serves multiple product teams. I released reusable UI component libraries achieving 100K+ npm downloads, ensuring high-quality and consistent UI components aligned with brand guidelines through automated testing and best practices. Working closely with designers, developers, and UX specialists, I delivered cohesive user experiences across products while participating in the full lifecycle from planning to iteration to meet evolving project needs.",
 
     technologies:[
+      "HTML",
+      "CSS", 
+      "SCSS",
       "JavaScript",
       "React",
-      "Storybook",
       "TypeScript",
-      "Web Components",
-      "SASS",
-      "Jest",
-      "Azure",
-      "Azure OpenAI Studio",
-      "CI/CD",
+      "Git",
+      "GitHub",
+      "Azure DevOps",
+      "Storybook",
+      "Zeroheight",
       "Figma",
+      "Maze",
+      "JIRA",
+      "npm"
     ],
     achievements: [
-      "Built 8 client projects from concept to production",
-      "Achieved 95% test coverage across all projects",
-      "Implemented real-time features using WebSockets"
+      "Released reusable UI component libraries with 100K+ npm downloads",
+      "Developed and maintained scalable design system supporting multiple product teams",
+      "Implemented automated testing ensuring high-quality, consistent UI components",
+      "Collaborated cross-functionally with designers, developers, and UX specialists",
+      "Participated in full design system lifecycle from planning to iteration"
     ]
   },
   {
     id: 3,
     company: "Funky Salsa Oy",
-    position: "Web Developer",
+    position: "Web Developer (Freelance)",
     duration: "Aug 2022 - Mar 2023",
-    location: "Helsinki, Finland",
-    description:       " Developed an order-handling web application with modern features from scratch using modern features and practices",
-    technologies: ["SASS", "JavaScript", "React", "Firebase"],
+    location: "Helsinki, Finland (Hybrid)",
+    description: "At Funky Salsa Oy, a Helsinki-based company specializing in the bar and beverage industry, I contributed as a freelance developer creating innovative digital solutions. I built a modern order-handling website (https://www.waveofflavors.fi/) from scratch using up-to-date web technologies and best practices. Developed comprehensive sales dashboards and inventory management systems to track business performance, while setting up CI/CD pipelines to automate testing and deployment processes. I optimized web pages for speed and scalability, handled regular site maintenance, and worked extensively with cross-browser compatibility challenges using PHP, JavaScript, TypeScript, and Express.js.",
+    technologies: ["PHP", "JavaScript", "TypeScript", "React", "Express.js", "SASS", "Firebase", "CI/CD"],
     achievements: [
-      "Increased user engagement by 35% through UX improvements",
-      "Created reusable component library used across 3 products",
-      "Optimized bundle size reducing load times by 25%"
+      "Built modern website from scratch using up-to-date web technologies",
+      "Developed sales reporting dashboard and inventory management system",
+      "Set up CI/CD pipelines for automated testing and deployment",
+      "Optimized web pages for speed, scalability and cross-browser compatibility",
+      "Successfully delivered order-handling website (waveofflavors.fi)"
     ]
   },
   {
     id: 4,
-  company: "Integrify Oy",
-    position: "Full Stack Developer",
-  duration: "January 2022 - June 2022",
-  location: "Helsinki, Finland",
-  description: "Joined through the six-month intensive full-stack program for modern web development with the stacks of React, TypeScript, NodeJS, MongoDB, SQL & PostgreSQL with the role of Full stack developer.",
-  technologies: ["HTML", "CSS", "JavaScript", "React", "MongoDB"],
-  achievements: [
-    "Completed 3 full-stack projects in a team of 5",
-    "Gained hands-on experience with Agile methodologies",
-    "Developed RESTful APIs and integrated third-party services"
-  ]
+    company: "Integrify Oy",
+    position: "Full Stack Developer Training",
+    duration: "Jan 2022 - Jun 2022",
+    location: "Helsinki Metropolitan Area (Hybrid)",
+    description: "Completed a six-month intensive full-stack program for modern web development, focusing on React, TypeScript, NodeJS, MongoDB, SQL & PostgreSQL. Worked collaboratively with teams to plan and build comprehensive web applications featuring both front-end and back-end components. Developed responsive user interfaces and robust APIs using JavaScript, TypeScript, and Express.js while ensuring cross-browser compatibility and mobile responsiveness. Maintained clean code standards, comprehensive technical documentation, and utilized Git for effective version control throughout the development process.",
+    technologies: ["JavaScript", "TypeScript", "React", "Redux", "Firebase", "Material UI", "NodeJS", "Express.js", "Nest.js", "MongoDB", "SQL", "PostgreSQL", "Git", "Python", "DevOps", "CI/CD"],
+    achievements: [
+      "Completed intensive 6-month full-stack development program",
+      "Built web applications with comprehensive front-end and back-end features",
+      "Developed responsive UIs and APIs ensuring cross-browser compatibility",
+      "Maintained clean code standards and comprehensive technical documentation",
+      "Assisted in CI/CD pipeline setup and deployment processes"
+    ]
   },
   {
     id: 5,
-  company: "Centria University of Applied Sciences",
-  position: "Software Developer Intern",
-  duration: "July 2021 - December 2021",
-  location: "Kokkola, Finland",
-  description: "During my six-month internship at Centria University of Applied Sciences in Kokkola, I engaged in two significant projects, one in Game Development and the other in Web Development. In the Game Development project, I collaborated with a team to create an interactive game using C++ and Unity, focusing on gameplay mechanics and user experience. In the Web Development project, I developed a web application using HTML, CSS, JavaScript, PHP, and MySQL, implementing features such as user authentication and database management. This internship provided me with valuable hands-on experience in both game and web development, enhancing my technical skills and teamwork abilities.",
-  technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "C++", "Arduino", "Raspberry Pi", "Agile Methodology"],
-  achievements: [
-    "Developed a web application with user authentication",
-    "Created an interactive game using C++ and Unity",      
-    "Implemented database management features in PHP and MySQL"
-  ]
+    company: "Centria University of Applied Sciences",
+    position: "Software Developer Intern",
+    duration: "Jul 2021 - Dec 2021",
+    location: "Finland (Remote)",
+    description: "During my six-month internship at Centria University of Applied Sciences in Kokkola, I engaged in two significant projects in Game Development and Web Development. In Game Development, I worked as part of a four-person team to deliver final products for university events - two games based on Arduino technology. This provided real product experience with C++ while learning JIRA, Agile methodology, and GitHub. In Web Development, I gained deep expertise with web applications using HTML, CSS, PHP, and APIs. I created responsive website layouts, wrote efficient and testable code following best practices, integrated backend services and databases, and maintained comprehensive software documentation. The web development project resulted in a work management tool delivered to a company in Kokkola.",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "C++", "Arduino", "Raspberry Pi", "Bootstrap", "Git", "GitHub", "JIRA", "Scrum", "Agile Methodology"],
+    achievements: [
+      "Delivered two Arduino-based games as part of 4-person team for university event",
+      "Gained hands-on experience with C++, JIRA, Agile methodology, and GitHub",
+      "Developed work management tool delivered to company in Kokkola",
+      "Created responsive web interfaces using HTML/CSS best practices",
+      "Integrated backend services and databases with comprehensive documentation",
+      "Applied security, session management, and web development best practices"
+    ]
   }
 ];
 

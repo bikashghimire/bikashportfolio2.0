@@ -2,8 +2,9 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Github, ExternalLink, Star } from 'lucide-react';
+import {  ExternalLink, Star } from 'lucide-react';
 import { projects } from '@/data/portfolio';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Projects: React.FC = () => {
   const featuredProjects = projects.filter(p => p.featured);
@@ -63,7 +64,7 @@ const Projects: React.FC = () => {
                   <div className="flex flex-col xs:flex-row gap-3">
                     <Button size="sm" variant="outline" asChild className="flex-1 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-2" />
+                        <GitHubIcon sx={{ fontSize: 16 }} className="mr-2" />
                         Code
                       </a>
                     </Button>
@@ -122,7 +123,7 @@ const Projects: React.FC = () => {
                   <div className="flex flex-col xs:flex-row gap-2">
                     <Button size="sm" variant="outline" asChild className="flex-1 text-xs border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-3 w-3 mr-1" />
+                        <GitHubIcon sx={{ fontSize: 12 }} className="mr-1" />
                         Code
                       </a>
                     </Button>
