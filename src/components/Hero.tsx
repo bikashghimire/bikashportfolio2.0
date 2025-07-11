@@ -2,9 +2,12 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowDown, Download, MapPin } from 'lucide-react';
+import { useLanguage } from '@/hooks/useLanguage';
 import { personalInfo } from '@/data/portfolio';
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage();
+  
   const scrollToAbout = () => {
     const element = document.querySelector('#about');
     if (element) {
@@ -46,8 +49,8 @@ const Hero: React.FC = () => {
             onClick={scrollToAbout}
             className="w-full xs:w-auto bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 px-8 py-4 text-lg font-medium rounded-md transition-all duration-300"
           >
-            <span className="hidden sm:inline">Discover My Journey</span>
-            <span className="sm:hidden">Learn More</span>
+            <span className="hidden sm:inline">{t('hero.discoverJourney')}</span>
+            <span className="sm:hidden">{t('hero.learnMore')}</span>
           </Button>
           <Button
             size="lg"
@@ -55,8 +58,8 @@ const Hero: React.FC = () => {
             className="w-full xs:w-auto px-8 py-4 text-lg font-medium rounded-md border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
           >
             <Download className="h-5 w-5 mr-2" />
-            <span className="hidden sm:inline">Download Resume</span>
-            <span className="sm:hidden">Resume</span>
+            <span className="hidden sm:inline">{t('hero.downloadResume')}</span>
+            <span className="sm:hidden">{t('hero.resume')}</span>
           </Button>
         </div>
 

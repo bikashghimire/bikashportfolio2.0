@@ -293,19 +293,19 @@ export const projects = [
 
 export const skills = [
   {
-    category: "Frontend",
-    items: ["React", "TypeScript", "Next.js", "Vue.js", "HTML5", "CSS3", "Tailwind CSS", "SCSS"]
+    category: "Frontend & Frameworks",
+    items: ["React", "TypeScript", "JavaScript", "HTML/CSS", "Next.js", "Web Components", "PHP", "MUI", "Tailwind CSS", "ShadCN/ui"]
   },
   {
-    category: "Backend",
-    items: ["Node.js", "Express", "Python", "Django", "PostgreSQL", "MongoDB", "Redis", "GraphQL"]
+    category: "Dev Tools & Design",
+    items: ["Storybook", "Figma", "GitHub Copilot", "VS Code", "Codespaces", "Jest", "React Testing Library", "Enzyme"]
   },
   {
-    category: "Cloud & DevOps",
-    items: ["AWS", "Google Cloud", "Docker", "Kubernetes", "CI/CD", "Terraform", "Nginx"]
+    category: "Data & AI",
+    items: ["Python", "Pandas", "NumPy", "SciPy", "TensorFlow", "Scikit-learn", "BeautifulSoup", "Matplotlib", "Plotly", "Seaborn"]
   },
   {
-    category: "Tools & Other",
-    items: ["Git", "Jest", "Cypress", "Figma", "Jira", "Webpack", "Vite", "Storybook"]
+    category: "Infrastructure & Databases",
+    items: ["MySQL", "PostgreSQL", "MongoDB", "Azure", "Docker", "GitHub CI/CD"]
   }
 ];

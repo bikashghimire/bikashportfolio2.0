@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import LanguageToggle from '@/components/LanguageToggle';
+import { useLanguage } from '@/hooks/useLanguage';
 import { personalInfo } from '@/data/portfolio';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,11 +21,11 @@ const Header: React.FC = () => {
   }, []);
 
   const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Education', href: '#education' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' }
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.experience'), href: '#experience' },
+    { label: t('nav.education'), href: '#education' },
+    { label: t('nav.projects'), href: '#projects' },
+    { label: t('nav.contact'), href: '#contact' }
   ];
 
   const scrollToSection = (href: string) => {
@@ -43,7 +46,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <div className="text-xl sm:text-2xl font-bold text-black dark:text-white">
-            Alex Thompson
+            {personalInfo.name}
           </div>
 
           {/* Desktop Navigation */}
@@ -62,6 +65,7 @@ const Header: React.FC = () => {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
+            <LanguageToggle />
             <ThemeToggle />
             <div className="w-px h-6 bg-gray-300 dark:bg-gray-700"></div>
             {[
@@ -79,6 +83,7 @@ const Header: React.FC = () => {
 
           {/* Mobile Actions - Fixed spacing and accessibility */}
           <div className="lg:hidden flex items-center space-x-3">
+            <LanguageToggle />
             <ThemeToggle />
             <Button
               variant="ghost"

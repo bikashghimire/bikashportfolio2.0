@@ -4,10 +4,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, Twitter, Send, MessageCircle } from 'lucide-react';
+import { useLanguage } from '@/hooks/useLanguage';
 import { personalInfo } from '@/data/portfolio';
 
 const Contact: React.FC = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -38,7 +40,7 @@ const Contact: React.FC = () => {
               Let's Connect
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Ready to bring your ideas to life? Let's discuss your next project or just have a conversation
+              {t('contact.title')}
             </p>
           </div>
 
@@ -49,14 +51,13 @@ const Contact: React.FC = () => {
                 <CardContent className="p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <MessageCircle className="h-6 w-6 text-gray-600 dark:text-gray-400" />
-                    <h3 className="text-2xl font-bold text-black dark:text-white">Get in Touch</h3>
+                    <h3 className="text-2xl font-bold text-black dark:text-white">{t('contact.getInTouch')}</h3>
                   </div>
                   <div className="space-y-6">
                     {[
-                      { icon: Mail, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-                      { icon: Phone, label: "Phone", value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
-                      { icon: MapPin, label: "Location", value: personalInfo.location, href: null }
-                    ].map((contact, index) => (
+                      { icon: Mail, label: t('contact.email'), value: personalInfo.email, href: `mailto:${personalInfo.email}` },
+                      { icon: MapPin, label: t('contact.location'), value: personalInfo.location, href: null }
+                    ].map((contact) => (
                       <div key={contact.label} className="flex items-center gap-4 p-4 rounded-lg bg-white dark:bg-black">
                         <div className="flex justify-center items-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full">
                           <contact.icon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
