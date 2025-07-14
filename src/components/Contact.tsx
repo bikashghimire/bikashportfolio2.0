@@ -5,11 +5,9 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, MapPin, Github, Linkedin, Twitter, Send, MessageCircle } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
 import { personalInfo } from '@/data/portfolio';
 
 const Contact: React.FC = () => {
-  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,46 +29,72 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-black">
+    <section id="contact" className="py-20 sm:py-24 lg:py-32 bg-white dark:bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-black dark:text-white">
+          <div className="text-center mb-16 sm:mb-20">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-6 bg-blue-50 dark:bg-blue-950 rounded-2xl">
+              <MessageCircle className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600 dark:text-blue-400" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
               Let's Connect
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              {t('contact.title')}
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              Ready to collaborate? I'd love to hear about your project and discuss how we can work together.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Information */}
             <div className="space-y-8">
-              <Card className="border-0 bg-gray-50 dark:bg-gray-900 shadow-sm">
-                <CardContent className="p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <MessageCircle className="h-6 w-6 text-gray-600 dark:text-gray-400" />
-                    <h3 className="text-2xl font-bold text-black dark:text-white">{t('contact.getInTouch')}</h3>
+              {/* Contact Details Card */}
+              <Card className="border-0 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black shadow-xl rounded-3xl overflow-hidden">
+                <CardContent className="p-8 sm:p-10">
+                  {/* Card Header */}
+                  <div className="text-center mb-10">
+                    <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-6 bg-blue-100 dark:bg-blue-900 rounded-2xl">
+                      <MessageCircle className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                      Get In Touch
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
+                      Let's discuss your next project
+                    </p>
                   </div>
+                  
+                  {/* Contact Items */}
                   <div className="space-y-6">
                     {[
-                      { icon: Mail, label: t('contact.email'), value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-                      { icon: MapPin, label: t('contact.location'), value: personalInfo.location, href: null }
+                      { icon: Mail, label: 'Email Address', value: personalInfo.email, href: `mailto:${personalInfo.email}`, desc: 'Send me an email' },
+                      { icon: MapPin, label: 'Location', value: personalInfo.location, href: null, desc: 'Based in' }
                     ].map((contact) => (
-                      <div key={contact.label} className="flex items-center gap-4 p-4 rounded-lg bg-white dark:bg-black">
-                        <div className="flex justify-center items-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full">
-                          <contact.icon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="font-semibold text-black dark:text-white">{contact.label}</p>
-                          {contact.href ? (
-                            <a href={contact.href} className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors break-all">
-                              {contact.value}
-                            </a>
-                          ) : (
-                            <p className="text-gray-600 dark:text-gray-400">{contact.value}</p>
-                          )}
+                      <div key={contact.label} className="group p-6 rounded-2xl bg-white dark:bg-black border-2 border-gray-100 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300 hover:shadow-lg">
+                        <div className="flex items-center gap-4">
+                          <div className="flex-shrink-0 flex justify-center items-center w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-xl group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors duration-300">
+                            <contact.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold text-gray-900 dark:text-white text-base mb-1">
+                              {contact.label}
+                            </h4>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">
+                              {contact.desc}
+                            </p>
+                            {contact.href ? (
+                              <a 
+                                href={contact.href} 
+                                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors break-all font-medium text-base"
+                              >
+                                {contact.value}
+                              </a>
+                            ) : (
+                              <p className="text-gray-700 dark:text-gray-300 font-medium text-base">
+                                {contact.value}
+                              </p>
+                            )}
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -78,24 +102,50 @@ const Contact: React.FC = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-0 bg-gray-50 dark:bg-gray-900 shadow-sm">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6 text-black dark:text-white">Follow My Journey</h3>
-                  <div className="grid grid-cols-1 gap-4">
+              {/* Social Links Card */}
+              <Card className="border-0 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black shadow-xl rounded-3xl overflow-hidden">
+                <CardContent className="p-8 sm:p-10">
+                  {/* Card Header */}
+                  <div className="text-center mb-10">
+                    <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-6 bg-blue-100 dark:bg-blue-900 rounded-2xl">
+                      <Github className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                      Follow My Journey
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
+                      Connect with me on social platforms
+                    </p>
+                  </div>
+                  
+                  {/* Social Links */}
+                  <div className="space-y-4">
                     {[
-                      { icon: Github, label: "GitHub", href: personalInfo.github, desc: "Open source contributions" },
-                      { icon: Linkedin, label: "LinkedIn", href: personalInfo.linkedin, desc: "Professional network" },
-                      { icon: Twitter, label: "Twitter", href: personalInfo.twitter, desc: "Tech thoughts & updates" }
+                      { icon: Github, label: "GitHub", href: personalInfo.github, desc: "Open source contributions & projects", color: "hover:bg-gray-50 dark:hover:bg-gray-800" },
+                      { icon: Linkedin, label: "LinkedIn", href: personalInfo.linkedin, desc: "Professional network & experience", color: "hover:bg-blue-50 dark:hover:bg-blue-900/20" },
+                      { icon: Twitter, label: "Twitter", href: personalInfo.twitter, desc: "Tech thoughts & industry updates", color: "hover:bg-sky-50 dark:hover:bg-sky-900/20" }
                     ].map((social) => (
-                      <Button key={social.label} variant="outline" asChild className="justify-start h-auto p-4 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
-                        <a href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
-                          <social.icon className="h-5 w-5" />
-                          <div className="text-left">
-                            <div className="font-semibold">{social.label}</div>
-                            <div className="text-sm opacity-70">{social.desc}</div>
+                      <a 
+                        key={social.label} 
+                        href={social.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className={`block p-4 rounded-2xl border-2 border-gray-100 dark:border-gray-800 ${social.color} transition-all duration-300 hover:shadow-md group`}
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="flex-shrink-0 flex justify-center items-center w-12 h-12 bg-gray-50 dark:bg-gray-800 rounded-xl group-hover:bg-white dark:group-hover:bg-gray-700 transition-colors duration-300">
+                            <social.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                           </div>
-                        </a>
-                      </Button>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold text-gray-900 dark:text-white text-base mb-1">
+                              {social.label}
+                            </h4>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm">
+                              {social.desc}
+                            </p>
+                          </div>
+                        </div>
+                      </a>
                     ))}
                   </div>
                 </CardContent>
@@ -103,24 +153,41 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Contact Form */}
-            <Card className="border-0 bg-gray-50 dark:bg-gray-900 shadow-sm">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-black dark:text-white">Send a Message</h3>
+            <Card className="border-0 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black shadow-xl rounded-3xl overflow-hidden">
+              <CardContent className="p-8 sm:p-10">
+                {/* Form Header */}
+                <div className="text-center mb-10">
+                  <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-6 bg-blue-100 dark:bg-blue-900 rounded-2xl">
+                    <Send className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                    Send a Message
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
+                    I'll get back to you within 24 hours
+                  </p>
+                </div>
+                
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-sm font-semibold text-black dark:text-white">Full Name</Label>
+                  <div className="space-y-3">
+                    <Label htmlFor="name" className="text-sm font-semibold text-gray-900 dark:text-white">
+                      Full Name *
+                    </Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="h-12 bg-white dark:bg-black border-gray-300 dark:border-gray-700 text-black dark:text-white"
-                      placeholder="Your full name"
+                      className="h-14 bg-white dark:bg-black border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-all duration-300 rounded-xl text-base"
+                      placeholder="Enter your full name"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-semibold text-black dark:text-white">Email Address</Label>
+                  
+                  <div className="space-y-3">
+                    <Label htmlFor="email" className="text-sm font-semibold text-gray-900 dark:text-white">
+                      Email Address *
+                    </Label>
                     <Input
                       id="email"
                       name="email"
@@ -128,28 +195,32 @@ const Contact: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="h-12 bg-white dark:bg-black border-gray-300 dark:border-gray-700 text-black dark:text-white"
+                      className="h-14 bg-white dark:bg-black border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-all duration-300 rounded-xl text-base"
                       placeholder="your.email@example.com"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm font-semibold text-black dark:text-white">Message</Label>
+                  
+                  <div className="space-y-3">
+                    <Label htmlFor="message" className="text-sm font-semibold text-gray-900 dark:text-white">
+                      Message *
+                    </Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows={5}
-                      className="bg-white dark:bg-black border-gray-300 dark:border-gray-700 text-black dark:text-white resize-none"
-                      placeholder="Tell me about your project or just say hello..."
+                      rows={6}
+                      className="bg-white dark:bg-black border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-all duration-300 resize-none rounded-xl text-base"
+                      placeholder="Tell me about your project, ask a question, or just say hello..."
                     />
                   </div>
+                  
                   <Button 
                     type="submit" 
-                    className="w-full h-12 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 font-semibold rounded-md transition-all duration-300"
+                    className="w-full h-14 bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-base group"
                   >
-                    <Send className="h-5 w-5 mr-2" />
+                    <Send className="h-5 w-5 mr-3 group-hover:translate-x-1 transition-transform duration-300" />
                     Send Message
                   </Button>
                 </form>
