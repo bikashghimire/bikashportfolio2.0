@@ -5,7 +5,7 @@ export const personalInfo = {
   bio: "Passionate software developer with 5+ years of experience creating scalable web applications. I specialize in React, TypeScript, and cloud technologies, with a track record of delivering high-quality solutions across diverse industries.",
   location: "Helsinki, Finland",
   email: "bikashghimire@2610.com",
-  website: "https://bikashghimire.dev",
+  website: "https://bikashghimire.com",
   github: "https://github.com/bikashghimire",
   linkedin: "https://linkedin.com/in/bikashghimire",
   twitter: "https://twitter.com/bikashghimire"
@@ -193,52 +193,95 @@ export const education = [
 export const certifications = [
   {
     id: 1,
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    date: "2023",
+    name: "Design Systems with Storybook, v2",
+    issuer: "Frontend Masters",
+    date: "2025",
     credentialId: "AWS-CSA-2023-001",
-    image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400"
+    image: "https://static.frontendmasters.com/ud/c/496fa182a0/oBHqaLwshU/design-systems-v2.pdf",
+    tags: ["Design Systems", "Storybook", "Component Libraries", "Frontend"]
   },
   {
     id: 2,
-    name: "Google Cloud Professional Developer",
-    issuer: "Google Cloud",
+    name: "100 Days of Code - 2023 Web Development Bootcamp",
+    issuer: "Udemy",
     date: "2023",
     credentialId: "GCP-PD-2023-001",
-    image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400"
+    image:"https://www.udemy.com/certificate/UC-d4a92cc0-4fba-48ac-aa96-fbef4b8e0813/",
+    tags: ["Cloud Computing", "GCP", "DevOps", "Backend"]
   },
   {
     id: 3,
-    name: "React Developer Certification",
-    issuer: "Meta",
+    name: "The Complete Web Developer in 2023: Zero to Mastery",
+    issuer: "Udemy",
     date: "2022",
     credentialId: "META-RD-2022-001",
-    image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400"
+    image: "https://www.udemy.com/certificate/UC-af734f50-a38a-41d4-b7ed-bddac593459f/",
+    tags: ["React", "JavaScript", "Frontend", "Web Development"]
   },
   {
     id: 4,
-    name: "JavaScript Algorithms and Data Structures",
-    issuer: "freeCodeCamp",
-    date: "2022",
+    name: "Azure AI services Essentials Training",
+    issuer: "LinkedIn Learning",
+    date: "2023",
     credentialId: "FCC-JS-2022-001",
-    image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400"
+    image: "https://www.linkedin.com/learning/certificates/877362e2aaf97edd2ede834e3664986fd3c85bc924e78bb877072853462de9bc",
+    tags: ["JavaScript", "Algorithms", "Data Structures", "Programming"]
   },
   {
     id: 5,
-    name: "TypeScript Advanced Certification",
-    issuer: "Microsoft",
-    date: "2021",
+    name: "Cert Prep: Scrum Master",
+    issuer: "LinkedIn Learning",
+    date: "2023",
     credentialId: "MS-TS-2021-001",
-    image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400"
+    image: "https://www.linkedin.com/learning/certificates/9375f65d0a9dee58925ffda29b7fdf65705d08ea2d20a8c1eec33c6c56c4eb86",
+    tags: ["TypeScript", "JavaScript", "Frontend", "Type Safety"]
   },
   {
     id: 6,
-    name: "Docker Certified Associate",
-    issuer: "Docker",
+    name: "JavaScript Essentials Training",
+    issuer: "LinkedIn Learning",
+    date: "2023",
+    credentialId: "DOCKER-CA-2021-001",
+    image: "https://www.linkedin.com/learning/certificates/48f4cede3d93b36cd76a80a19b4aebb3ef7db63615793318ee60ae7c327eb539",
+    tags: ["Docker", "Containerization", "DevOps", "Infrastructure"]
+  },
+  {
+    id: 7,
+    name: "React.js Essential Training",
+    issuer: "LinkedIn Learning",
+    date: "2023",
+    credentialId: "DOCKER-CA-2021-001",
+    image: "https://www.linkedin.com/learning/certificates/58ebc1a0f8a4172b342a864fef2a6c21c1cb144155aa2e16ae00f98943e30b7f",
+    tags: ["Docker", "Containerization", "DevOps", "Infrastructure"]
+  },
+  {
+    id: 8,
+    name: "Mern Essentials Training",
+    issuer: "LinkedIn Learning",
+    date: "2022",
+    credentialId: "DOCKER-CA-2021-001",
+    image: "https://www.linkedin.com/learning/certificates/258a3bbfea4b4c300247bed138075c91f09969625274692e2d5ac1b310bf3656?trk=share_certificate",
+    tags: ["Docker", "Containerization", "DevOps", "Infrastructure"]
+  },
+  {
+    id: 9,
+    name: "Cultivating a Growth Mindset",
+    issuer: "LinkedIn Learning",
     date: "2021",
     credentialId: "DOCKER-CA-2021-001",
-    image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400"
+    image: "https://www.linkedin.com/learning/certificates/08ea6d2ef2dad81416fbed8f195eefd2a6db123f012d1c804687aac3b60dabc9?trk=share_certificate",
+    tags: ["Docker", "Containerization", "DevOps", "Infrastructure"]
+  },
+  {
+    id: 10,
+    name: "React Server-Side Rendering",
+    issuer: "LinkedIn Learning",
+    date: "2022",
+    credentialId: "DOCKER-CA-2021-001",
+    image: "https://www.linkedin.com/learning/certificates/0018342107376183171d78821d0b01eb7ea19f1ed12de846dd68c58110892e0f?trk=share_certificate",
+    tags: ["Docker", "Containerization", "DevOps", "Infrastructure"]
   }
+
 ];
 
 export const projects = [

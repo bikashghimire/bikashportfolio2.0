@@ -1,79 +1,60 @@
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { AlignCenterVertical as Certificate, Calendar } from 'lucide-react';
 import { certifications } from '@/data/portfolio';
 
 const Certifications: React.FC = () => {
   return (
-    <section className="py-20 sm:py-24 lg:py-32 bg-white dark:bg-black">
+    <section className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-16 sm:mb-20">
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-6 bg-blue-50 dark:bg-blue-950 rounded-2xl">
-              <Certificate className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600 dark:text-blue-400" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-black dark:text-white">
               Certifications
             </h2>
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Professional certifications and continuous learning achievements
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert) => (
-              <Card key={cert.id} className="border-0 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black shadow-xl rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
-                <CardContent className="p-8">
-                  {/* Certificate Header */}
-                  <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-6 bg-blue-100 dark:bg-blue-900 rounded-2xl group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-colors duration-300">
-                      <Certificate className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 leading-tight">
-                      {cert.name}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg font-medium">
-                      {cert.issuer}
-                    </p>
-                  </div>
-
-                  {/* Certificate Details */}
-                  <div className="space-y-6">
-                    {/* Date */}
-                    <div className="flex items-center justify-center gap-3 p-4 rounded-2xl bg-white dark:bg-black border-2 border-gray-100 dark:border-gray-800">
-                      <div className="flex items-center justify-center w-10 h-10 bg-blue-50 dark:bg-blue-900/30 rounded-xl">
-                        <Calendar className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-gray-500 dark:text-gray-400 text-sm font-medium">Issued Date</p>
-                        <p className="text-gray-900 dark:text-white font-semibold">{cert.date}</p>
-                      </div>
-                    </div>
-
-                    {/* Credential ID */}
-                    <div className="p-4 rounded-2xl bg-white dark:bg-black border-2 border-gray-100 dark:border-gray-800">
-                      <p className="text-gray-500 dark:text-gray-400 text-sm font-medium mb-2 text-center">
-                        Credential ID
-                      </p>
-                      <p className="text-gray-900 dark:text-white text-sm font-mono text-center break-all bg-gray-50 dark:bg-gray-800 p-3 rounded-xl">
-                        {cert.credentialId}
-                      </p>
-                    </div>
-
-                    {/* Verification Badge */}
-                    <div className="flex justify-center">
-                      <Badge 
-                        variant="outline" 
-                        className="px-6 py-3 text-sm font-semibold bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-700 dark:text-green-400 rounded-xl"
+              <div 
+                key={cert.id} 
+                className="group p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold text-black dark:text-white mb-2 leading-snug">
+                    {cert.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                    <span className="font-medium">{cert.issuer}</span> • {cert.date}
+                  </p>
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {cert.tags?.map((tag) => (
+                      <span 
+                        key={tag}
+                        className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md"
                       >
-                        ✓ Verified Certificate
-                      </Badge>
-                    </div>
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+                
+                <a 
+                  href={cert.image} 
+                  className="inline-flex items-center justify-center gap-2 px-3 py-2 bg-black dark:bg-white text-white dark:text-black font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md text-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>View Certificate</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
             ))}
           </div>
         </div>
