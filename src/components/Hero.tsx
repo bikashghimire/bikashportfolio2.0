@@ -5,8 +5,8 @@ import { ArrowDown, Download, MapPin } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { personalInfo } from '@/data/portfolio';
 
-const ACCENT = 'bg-blue-600 hover:bg-blue-700 text-white';
-const ACCENT_TEXT = 'text-blue-600 dark:text-blue-400';
+const ACCENT = 'bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black text-white dark:text-black';
+const ACCENT_TEXT = 'text-black dark:text-white';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(30, 64, 175, ${particle.opacity})`; // blue-700
+        ctx.fillStyle = `rgba(0, 0, 0, ${particle.opacity})`; // black
         ctx.fill();
       });
       requestAnimationFrame(animate);
@@ -77,8 +77,8 @@ const Hero: React.FC = () => {
       <div className="container mx-auto text-center relative z-10 max-w-5xl">
         {/* Location badge with accent border */}
         <div className="flex items-center justify-center mb-10 animate-fade-in">
-          <Badge variant="secondary" className="flex items-center gap-2 px-6 py-2 text-sm font-medium bg-white/80 dark:bg-black/80 border border-blue-600 text-gray-800 dark:text-gray-200 shadow-sm">
-            <MapPin className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+          <Badge variant="secondary" className="flex items-center gap-2 px-6 py-2 text-sm font-medium bg-white/80 dark:bg-black/80 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 shadow-sm">
+            <MapPin className="h-4 w-4 text-gray-700 dark:text-gray-300" />
             <span className="hidden xs:inline">{personalInfo.location}</span>
             <span className="xs:hidden">SF, CA</span>
           </Badge>
@@ -88,12 +88,12 @@ const Hero: React.FC = () => {
           <h1 className={`text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-4 leading-none ${ACCENT_TEXT}`}>
             {personalInfo.name}
           </h1>
-          <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-gray-200">
+          <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black dark:text-white">
             {personalInfo.title}
           </h2>
         </div>
         {/* Description */}
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-14 max-w-3xl mx-auto leading-relaxed animate-fade-in delay-300 font-light">
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-14 max-w-3xl mx-auto leading-relaxed animate-fade-in delay-300 font-light">
           {personalInfo.tagline}
         </p>
         {/* CTA Buttons */}
@@ -113,9 +113,9 @@ const Hero: React.FC = () => {
           <Button
             size="lg"
             variant="outline"
-            className="group w-full xs:w-auto px-10 py-6 text-xl font-semibold rounded-xl border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-700 dark:hover:border-blue-300 transition-all duration-300 transform hover:scale-105 shadow-md"
+            className="group w-full xs:w-auto px-10 py-6 text-xl font-semibold rounded-xl border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-md"
           >
-            <Download className="h-6 w-6 mr-3 group-hover:animate-bounce text-blue-600 dark:text-blue-400" />
+            <Download className="h-6 w-6 mr-3 group-hover:animate-bounce text-gray-700 dark:text-gray-300" />
             <span className="hidden sm:inline">{t('hero.downloadResume')}</span>
             <span className="sm:hidden">{t('hero.resume')}</span>
           </Button>
@@ -126,7 +126,7 @@ const Hero: React.FC = () => {
             variant="ghost"
             size="icon"
             onClick={scrollToAbout}
-            className="group mx-auto rounded-full text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-950 w-16 h-16 transition-all duration-300"
+            className="group mx-auto rounded-full text-black dark:text-white hover:opacity-70 transition-opacity w-16 h-16 transition-all duration-300"
           >
             <ArrowDown className="h-8 w-8 group-hover:translate-y-1 transition-transform duration-300" />
           </Button>

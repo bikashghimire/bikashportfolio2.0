@@ -20,6 +20,28 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      // Apply styles to body
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        // Restore scroll position and styles
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isMenuOpen]);
+
   const navItems = [
     { label: t('nav.about'), href: '#about' },
     { label: t('nav.experience'), href: '#experience' },
@@ -37,11 +59,21 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`fixed top-0 right-0 w-full z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm' 
-        : 'bg-transparent'
-    }`}>
+    <>
+      {/* Backdrop overlay for mobile menu */}
+      {isMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 dark:bg-white/20 z-40 lg:hidden"
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+      
+      <header className={`fixed top-0 right-0 w-full z-50 transition-all duration-300 ${
+        isScrolled || isMenuOpen
+          ? 'bg-white dark:bg-black backdrop-blur-md border-b-2 border-black dark:border-white shadow-sm' 
+          : 'bg-transparent'
+      }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
@@ -55,7 +87,7 @@ const Header: React.FC = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors font-medium relative group"
+                className="text-black dark:text-white hover:opacity-70 transition-opacity font-medium relative group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -67,13 +99,13 @@ const Header: React.FC = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <LanguageToggle />
             <ThemeToggle />
-            <div className="w-px h-6 bg-gray-300 dark:bg-gray-700"></div>
+            <div className="w-px h-6 bg-black dark:bg-white"></div>
             {[
               { icon: Github, href: personalInfo.github },
               { icon: Linkedin, href: personalInfo.linkedin },
               { icon: Mail, href: `mailto:${personalInfo.email}` }
             ].map((social, index) => (
-              <Button key={index} variant="ghost" size="icon" asChild className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800">
+              <Button key={index} variant="ghost" size="icon" asChild className="text-black dark:text-white hover:opacity-70 transition-opacity">
                 <a href={social.href} target="_blank" rel="noopener noreferrer">
                   <social.icon className="h-5 w-5" />
                 </a>
@@ -89,7 +121,7 @@ const Header: React.FC = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 w-10 h-10 flex items-center justify-center"
+              className="text-black dark:text-white hover:opacity-70 transition-opacity w-10 h-10 flex items-center justify-center"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -103,20 +135,20 @@ const Header: React.FC = () => {
             ? 'max-h-96 opacity-100 visible' 
             : 'max-h-0 opacity-0 invisible overflow-hidden'
         }`}>
-          <nav className="py-4 border-t border-gray-200 dark:border-gray-800">
+          <nav className="py-4 border-t-2 border-black dark:border-white bg-white dark:bg-black">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors font-medium py-3 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 w-full"
+                  className="text-left text-black dark:text-white hover:opacity-70 transition-opacity font-medium py-3 px-4 rounded-md w-full"
                 >
                   {item.label}
                 </button>
               ))}
               
               {/* Mobile Social Links - Better spacing */}
-              <div className="flex justify-center space-x-4 pt-4 mt-2 border-t border-gray-200 dark:border-gray-800">
+              <div className="flex justify-center space-x-4 pt-4 mt-2 border-t-2 border-black dark:border-white">
                 {[
                   { icon: Github, href: personalInfo.github, label: 'GitHub' },
                   { icon: Linkedin, href: personalInfo.linkedin, label: 'LinkedIn' },
@@ -127,7 +159,7 @@ const Header: React.FC = () => {
                     variant="ghost" 
                     size="icon" 
                     asChild 
-                    className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 w-12 h-12"
+                    className="text-black dark:text-white hover:opacity-70 transition-opacity w-12 h-12"
                   >
                     <a 
                       href={social.href} 
@@ -145,6 +177,7 @@ const Header: React.FC = () => {
         </div>
       </div>
     </header>
+    </>
   );
 };
 

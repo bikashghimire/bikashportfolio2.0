@@ -14,29 +14,29 @@ const Education: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-black dark:text-white">
               Education
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Academic foundation and continuous learning journey
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {education.map((edu) => (
-              <Card key={edu.id} className="overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-black shadow-sm">
+              <Card key={edu.id} className="overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-sm">
                 <CardContent className="p-8">
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="flex justify-center items-center w-12 h-12 bg-blue-100 dark:bg-blue-950 rounded-full">
-                      <GraduationCap className="h-6 w-6 text-blue-600" />
+                    <div className="flex justify-center items-center w-12 h-12 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-full">
+                      <GraduationCap className="h-6 w-6 text-gray-700 dark:text-gray-300" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-xl font-semibold text-black dark:text-white mb-2">{edu.degree}</h3>
-                      <h4 className="text-lg font-medium mb-2 text-gray-700 dark:text-gray-300">{edu.institution}</h4>
+                      <h4 className="text-lg font-medium mb-2 text-black dark:text-white">{edu.institution}</h4>
                       <div className="flex flex-col xs:flex-row xs:flex-wrap gap-4 text-gray-600 dark:text-gray-400 text-sm">
                         <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4 text-blue-600" />
+                          <Calendar className="h-4 w-4 text-gray-600 dark:text-gray-400" />
                           {edu.duration}
                         </div>
                         <div className="flex items-center gap-1">
-                          <MapPin className="h-4 w-4 text-blue-600" />
+                          <MapPin className="h-4 w-4 text-gray-600 dark:text-gray-400" />
                           {edu.location}
                         </div>
                       </div>
@@ -47,7 +47,7 @@ const Education: React.FC = () => {
                     <h5 className="font-semibold mb-3 text-black dark:text-white">Key Coursework</h5>
                     <div className="flex flex-wrap gap-2">
                       {edu.coursework.map((course) => (
-                        <Badge key={course} variant="outline" className="text-xs py-1 px-2 bg-blue-50 dark:bg-blue-950 border-blue-600 text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
+                        <Badge key={course} variant="outline" className="text-xs py-1 px-2 bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                           {course}
                         </Badge>
                       ))}
@@ -58,8 +58,8 @@ const Education: React.FC = () => {
                     <h5 className="font-semibold mb-3 text-black dark:text-white">Achievements</h5>
                     <ul className="space-y-2">
                       {edu.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-2 p-3 rounded-lg bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800">
-                          <Award className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <li key={i} className="flex items-start gap-2 p-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+                          <Award className="h-4 w-4 text-gray-700 dark:text-gray-300 mt-0.5 flex-shrink-0" />
                           <span className="text-sm text-gray-700 dark:text-gray-300">{achievement}</span>
                         </li>
                       ))}

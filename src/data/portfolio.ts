@@ -2,24 +2,23 @@ export const personalInfo = {
   name: "Bikash Ghimire",
   title: "Software Developer",
   tagline: "Building exceptional web experiences with modern technologies",
-  bio: "Passionate software developer with 5+ years of experience creating scalable web applications. I specialize in React, TypeScript, and cloud technologies, with a track record of delivering high-quality solutions across diverse industries.",
+  bio: "Ambitious, Optimistic Web Developer with the skillsets of JavaScript, React, TypeScript, Node JS for modern web development with the ability to work in a fast-changing environment",
   location: "Helsinki, Finland",
-  email: "bikashghimire@2610.com",
-  website: "https://bikashghimire.com",
+  email: "bikashghimire2610@gmail.com",
+  website: "",
   github: "https://github.com/bikashghimire",
   linkedin: "https://linkedin.com/in/bikashghimire",
-  twitter: "https://twitter.com/bikashghimire"
+  twitter: ""
 };
 
 export const experience = [
   {
     id: 1,
     company: "Datadrivers Oy",
-    position: " Software Developer",
-    duration: "2025 Mar - Present",
+    position: "Software Developer",
+    duration: "Mar 2024 - Present",
     location: "Helsinki, Finland",
-    description:  "Architected an enterprise-grade design system from the ground up, driving UI/UX consistency across multiple product lines and significantly improving development velocity. Spearheaded front-end R&D initiatives by evaluating next-generation frameworks and authoring Architecture Decision Records (ADRs) to guide scalable component library selection. Developed a comprehensive, accessible, and performant component library using TypeScript, React, and Tailwind CSS. Established robust development infrastructure including Storybook documentation, design tokens, and automated testing frameworks. Collaborated cross-functionally with product, design, and backend teams to deliver seamless user experiences for flagship platforms such as Webauto and Fleetskills. Additionally, mentored teams on modern front-end best practices, component-driven development, and CI/CD workflows.",
-
+    description: "Architected an enterprise-grade design system from the ground up, driving UI/UX consistency across multiple product lines and significantly improving development velocity. Spearheaded front-end R&D initiatives by evaluating next-generation frameworks and authoring Architecture Decision Records (ADRs) to guide scalable component library selection. Developed a comprehensive, accessible, and performant component library using TypeScript, React, and Tailwind CSS. Established robust development infrastructure including Storybook documentation, design tokens, and automated testing frameworks. Collaborated cross-functionally with product, design, and backend teams to deliver seamless user experiences for flagship platforms such as Webauto and Fleetskills. Additionally, mentored teams on modern front-end best practices, component-driven development, and CI/CD workflows.",
     technologies: [
       "JavaScript",
       "React",
@@ -39,91 +38,89 @@ export const experience = [
       "Figma",
     ],
     achievements: [
-      "Led team of 5 developers in building customer portal",
-      "Reduced deployment time by 60% through CI/CD optimization",
-      "Mentored junior developers and conducted code reviews"
+      "Architected enterprise-grade design system from the ground up",
+      "Improved development velocity across multiple product lines",
+      "Established robust development infrastructure with Storybook and design tokens",
+      "Mentored teams on modern front-end best practices"
     ]
   },
   {
     id: 2,
     company: "Metso",
-    position: "Software Engineer",
-    duration: "May 2023 - Jan 2025",
-    location: "Espoo, Finland (Hybrid)",
-    description: "At Metso, a global leader in sustainable technologies for aggregates, minerals processing, and metals refining industries, I contributed to developing and maintaining a scalable design system that serves multiple product teams. I released reusable UI component libraries achieving 100K+ npm downloads, ensuring high-quality and consistent UI components aligned with brand guidelines through automated testing and best practices. Working closely with designers, developers, and UX specialists, I delivered cohesive user experiences across products while participating in the full lifecycle from planning to iteration to meet evolving project needs.",
-
-    technologies:[
-      "HTML",
-      "CSS", 
-      "SCSS",
+    position: "Software Developer",
+    duration: "May 2023 - Jan 2024",
+    location: "Espoo, Finland",
+    description: "At Metso, I led the development of scalable design system UI libraries, including a React-based framework and a framework-agnostic web components library, collectively achieving 100,000+ npm downloads. I ensured components were reusable, accessible, and performance-optimized, adhering to WCAG standards and collaborating with cross-functional teams. My work on the design system earned recognition at the Metso Innovation Award 2024 for its impact on UI/UX standardization and scalability. Additionally, I developed AI-driven solutions in Azure using OpenAI Studio, integrated CI/CD workflows, and deployed static web applications.",
+    technologies: [
       "JavaScript",
       "React",
-      "TypeScript",
-      "Git",
-      "GitHub",
-      "Azure DevOps",
       "Storybook",
-      "Zeroheight",
+      "TypeScript",
+      "Web Components",
+      "SASS",
+      "Jest",
+      "Azure",
+      "Azure OpenAI Studio",
+      "CI/CD",
       "Figma",
-      "Maze",
-      "JIRA",
-      "npm"
     ],
     achievements: [
-      "Released reusable UI component libraries with 100K+ npm downloads",
-      "Developed and maintained scalable design system supporting multiple product teams",
-      "Implemented automated testing ensuring high-quality, consistent UI components",
-      "Collaborated cross-functionally with designers, developers, and UX specialists",
-      "Participated in full design system lifecycle from planning to iteration"
+      "Led development of design system UI libraries achieving 100,000+ npm downloads",
+      "Earned recognition at Metso Innovation Award 2024",
+      "Developed AI-driven solutions in Azure using OpenAI Studio",
+      "Ensured components were accessible and performance-optimized per WCAG standards"
     ]
   },
   {
     id: 3,
     company: "Funky Salsa Oy",
-    position: "Web Developer (Freelance)",
+    position: "Web Developer",
     duration: "Aug 2022 - Mar 2023",
-    location: "Helsinki, Finland (Hybrid)",
-    description: "At Funky Salsa Oy, a Helsinki-based company specializing in the bar and beverage industry, I contributed as a freelance developer creating innovative digital solutions. I built a modern order-handling website (https://www.waveofflavors.fi/) from scratch using up-to-date web technologies and best practices. Developed comprehensive sales dashboards and inventory management systems to track business performance, while setting up CI/CD pipelines to automate testing and deployment processes. I optimized web pages for speed and scalability, handled regular site maintenance, and worked extensively with cross-browser compatibility challenges using PHP, JavaScript, TypeScript, and Express.js.",
-    technologies: ["PHP", "JavaScript", "TypeScript", "React", "Express.js", "SASS", "Firebase", "CI/CD"],
+    location: "Helsinki, Finland",
+    description: "Developed an order-handling web application with modern features from scratch using modern features and practices",
+    technologies: ["SASS", "JavaScript", "React", "Firebase"],
     achievements: [
-      "Built modern website from scratch using up-to-date web technologies",
-      "Developed sales reporting dashboard and inventory management system",
-      "Set up CI/CD pipelines for automated testing and deployment",
-      "Optimized web pages for speed, scalability and cross-browser compatibility",
-      "Successfully delivered order-handling website (waveofflavors.fi)"
+      "Built order-handling web application from scratch",
+      "Implemented modern web development practices",
+      "Delivered production-ready application"
     ]
   },
   {
     id: 4,
     company: "Integrify Oy",
-    position: "Full Stack Developer Training",
-    duration: "Jan 2022 - Jun 2022",
-    location: "Helsinki Metropolitan Area (Hybrid)",
-    description: "Completed a six-month intensive full-stack program for modern web development, focusing on React, TypeScript, NodeJS, MongoDB, SQL & PostgreSQL. Worked collaboratively with teams to plan and build comprehensive web applications featuring both front-end and back-end components. Developed responsive user interfaces and robust APIs using JavaScript, TypeScript, and Express.js while ensuring cross-browser compatibility and mobile responsiveness. Maintained clean code standards, comprehensive technical documentation, and utilized Git for effective version control throughout the development process.",
-    technologies: ["JavaScript", "TypeScript", "React", "Redux", "Firebase", "Material UI", "NodeJS", "Express.js", "Nest.js", "MongoDB", "SQL", "PostgreSQL", "Git", "Python", "DevOps", "CI/CD"],
+    position: "Full Stack Developer",
+    duration: "January 2022 - June 2022",
+    location: "Helsinki, Finland",
+    description: "Joined through the six-month intensive full-stack program for modern web development with the stacks of React, TypeScript, NodeJS, MongoDB, SQL & PostgreSQL with the role of Full stack developer.",
+    technologies: ["HTML", "CSS", "JavaScript", "React", "MongoDB"],
     achievements: [
-      "Completed intensive 6-month full-stack development program",
-      "Built web applications with comprehensive front-end and back-end features",
-      "Developed responsive UIs and APIs ensuring cross-browser compatibility",
-      "Maintained clean code standards and comprehensive technical documentation",
-      "Assisted in CI/CD pipeline setup and deployment processes"
+      "Completed six-month intensive full-stack program",
+      "Learned modern web development stacks",
+      "Worked with React, TypeScript, NodeJS, MongoDB, SQL & PostgreSQL"
     ]
   },
   {
     id: 5,
-    company: "Centria University of Applied Sciences",
+    company: "Centria University R & D",
     position: "Software Developer Intern",
-    duration: "Jul 2021 - Dec 2021",
-    location: "Finland (Remote)",
-    description: "During my six-month internship at Centria University of Applied Sciences in Kokkola, I engaged in two significant projects in Game Development and Web Development. In Game Development, I worked as part of a four-person team to deliver final products for university events - two games based on Arduino technology. This provided real product experience with C++ while learning JIRA, Agile methodology, and GitHub. In Web Development, I gained deep expertise with web applications using HTML, CSS, PHP, and APIs. I created responsive website layouts, wrote efficient and testable code following best practices, integrated backend services and databases, and maintained comprehensive software documentation. The web development project resulted in a work management tool delivered to a company in Kokkola.",
-    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "C++", "Arduino", "Raspberry Pi", "Bootstrap", "Git", "GitHub", "JIRA", "Scrum", "Agile Methodology"],
+    duration: "July 2021 - December 2021",
+    location: "Kokkola, Finland",
+    description: "During my six-month internship at Centria University of Applied Sciences in Kokkola, I engaged in two significant projects, one in Game Development and the other in Web Development.",
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "PHP",
+      "MySQL",
+      "C++",
+      "Arduino",
+      "Raspberry Pi",
+      "Agile Methodology",
+    ],
     achievements: [
-      "Delivered two Arduino-based games as part of 4-person team for university event",
-      "Gained hands-on experience with C++, JIRA, Agile methodology, and GitHub",
-      "Developed work management tool delivered to company in Kokkola",
-      "Created responsive web interfaces using HTML/CSS best practices",
-      "Integrated backend services and databases with comprehensive documentation",
-      "Applied security, session management, and web development best practices"
+      "Completed two significant projects in Game Development and Web Development",
+      "Gained experience with Arduino and Raspberry Pi",
+      "Applied Agile Methodology in real-world projects"
     ]
   }
 ];
@@ -133,12 +130,11 @@ export const education = [
   {
     id: 1,
     institution: "Åbo Akademi University",
-    degree:       "Masters Degree in Information Technology, Computer Software Engineering",
-
-    duration: "2023 - 2025",
+    degree: "Masters Degree in Information Technology, Computer Software Engineering",
+    duration: "Aug 2023 - Feb 2025",
     location: "Turku, Finland",
     coursework: [
-       "Artificial Intelligence",
+      "Artificial Intelligence",
       "Software Quality",
       "Machine Learning",
       "Web Technologies",
@@ -154,16 +150,14 @@ export const education = [
       "Analytics for Industrial Internet",
     ],
     achievements: [
-      "Dean's List for 3 consecutive semesters",
-      "Graduate Research Assistant",
-      "Published paper on web performance optimization"
+      "Pursuing advanced studies in software engineering and AI",
+      "Focus on modern web technologies and cloud computing"
     ]
   },
   {
     id: 2,
     institution: "Centria University of Applied Sciences",
-    degree:
-      "Bachelor's degree in Information Technology, Computer Software Engineering",
+    degree: "Bachelor's degree in Information Technology, Computer Software Engineering",
     duration: "Aug 2017 - Dec 2021",
     location: "Kokkola, Finland",
     coursework: [
@@ -183,9 +177,8 @@ export const education = [
       "Project Management",
     ],
     achievements: [
-      "Graduated Magna Cum Laude",
-      "President of Computer Science Club",
-      "Hackathon winner - Best Mobile App"
+      "Completed 275 credits (exceeding 240 credit requirement)",
+      "Comprehensive foundation in software engineering"
     ]
   }
 ];
@@ -287,62 +280,112 @@ export const certifications = [
 export const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product catalog, shopping cart, and payment processing.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "AWS", "Docker"],
-    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    github: "https://github.com/alexthompson/ecommerce-platform",
-    demo: "https://ecommerce-demo.alexthompson.dev",
+    title: "VisionBoard",
+    description: "I developed a latent dashboard interface leveraging Next.js, TypeScript, and Shadcn/UI.",
+    technologies: ["Next.Js", "TypeScript", "Shadcn/UI"],
+    image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/visionboard-shadcn",
+    demo: "https://visionboard-shadcn.vercel.app/",
     featured: true
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    technologies: ["React", "TypeScript", "Socket.io", "Express", "MongoDB"],
-    image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
-    github: "https://github.com/alexthompson/task-manager",
-    demo: "https://tasks.alexthompson.dev",
+    title: "Wave of Flavors",
+    description: "A website for a restaurant in Helsinki, Finland. It is built with React, TypeScript, and Tailwind CSS.",
+    technologies: ["React.Js", "TypeScript", "Shadcn/UI"],
+    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/wave-of-flavors",
+    demo: "https://www.waveofflavors.fi/",
     featured: true
   },
   {
     id: 3,
-    title: "Weather Dashboard",
-    description: "Beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.",
-    technologies: ["React", "TypeScript", "OpenWeather API", "Chart.js", "Tailwind"],
-    image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
-    github: "https://github.com/alexthompson/weather-dashboard",
-    demo: "https://weather.alexthompson.dev",
+    title: "Dashboard",
+    description: "I developed a dashboard interface leveraging Next.js, TypeScript, and Shadcn/UI.",
+    technologies: ["Next.Js", "TypeScript", "Shadcn/UI"],
+    image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/bikashpress-ui",
+    demo: "https://bikashpress-ui.vercel.app/",
     featured: true
   },
   {
     id: 4,
-    title: "Social Media Analytics",
-    description: "Analytics dashboard for social media metrics with data visualization and automated reporting features.",
-    technologies: ["React", "D3.js", "Node.js", "PostgreSQL", "Redis"],
-    image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800",
-    github: "https://github.com/alexthompson/social-analytics",
-    demo: "https://analytics.alexthompson.dev",
+    title: "Bikash Dev Blog",
+    description: "I sometimes write stuffs about Front-End development, Design System.",
+    technologies: ["Nunjucks", "JavaScript", "CSS"],
+    image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/bikashdev-blog",
+    demo: "https://bikashdev.netlify.app/about/",
     featured: false
   },
   {
     id: 5,
-    title: "Recipe Sharing Platform",
-    description: "Community-driven recipe sharing platform with user profiles, recipe collections, and rating system.",
-    technologies: ["React", "Firebase", "Algolia", "Tailwind CSS"],
-    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
-    github: "https://github.com/alexthompson/recipe-platform",
-    demo: "https://recipes.alexthompson.dev",
+    title: "Tapana Oy Website",
+    description: "I developed a dashboard interface leveraging Next.js, TypeScript, and Shadcn/UI.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/tapana-oy",
+    demo: "https://santo-one.vercel.app/",
     featured: false
   },
   {
     id: 6,
-    title: "Code Snippet Manager",
-    description: "Developer tool for organizing and sharing code snippets with syntax highlighting and search functionality.",
-    technologies: ["React", "TypeScript", "Prism.js", "Supabase"],
+    title: "Bikash Dev Website",
+    description: "Website for showcasing my portfolio, blog, and other stuffs.",
+    technologies: ["TypeScript", "CSS", "JavaScript"],
+    image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/tapana-oy",
+    demo: "https://bikashdev-com.vercel.app/",
+    featured: false
+  },
+  {
+    id: 7,
+    title: "Expense Calculator",
+    description: "A react app helps with tracking everyday finances! You going to love it.",
+    technologies: ["HTML", "CSS", "JavaScript", "React"],
+    image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/Expense-Calculater",
+    demo: "https://expensescalculator1.netlify.app/",
+    featured: false
+  },
+  {
+    id: 8,
+    title: "Serverless React",
+    description: "It displays list of countries with their detail information gets data from api",
+    technologies: ["React", "JavaScript", "ExpressJS"],
     image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
-    github: "https://github.com/alexthompson/snippet-manager",
-    demo: "https://snippets.alexthompson.dev",
+    github: "https://github.com/bikashghimire/react-aws",
+    demo: "Maintaing, refining",
+    featured: false
+  },
+  {
+    id: 9,
+    title: "Ecommerce",
+    description: "Fully functioning ecommerce application",
+    technologies: ["SASS", "JavaScript", "EJS"],
+    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/ecommerce-application",
+    demo: "",
+    featured: false
+  },
+  {
+    id: 10,
+    title: "Sherpa Food & Bar Website",
+    description: "A website for a restaurant in Helsinki",
+    technologies: ["BootStrap", "HTML", "CSS"],
+    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/typescript-note-taking-app",
+    demo: "https://bikashghimire.github.io/sherpa-food-and-bar-dev-team/",
+    featured: false
+  },
+  {
+    id: 11,
+    title: "SvelteKit Notebook",
+    description: "A NoteBook app based on Sveltekit",
+    technologies: ["Sveltekit", "Firebase", "TypeScript"],
+    image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/sveltekit-crud-fullstack",
+    demo: "https://mynotebookapps.netlify.app/",
     featured: false
   }
 ];
@@ -350,18 +393,22 @@ export const projects = [
 export const skills = [
   {
     category: "Frontend & Frameworks",
-    items: ["React", "TypeScript", "JavaScript", "HTML/CSS", "Next.js", "Web Components", "PHP", "MUI", "Tailwind CSS", "ShadCN/ui"]
+    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Web Components", "Next JS", "SASS", "Material UI", "SvelteKit"]
   },
   {
     category: "Dev Tools & Design",
-    items: ["Storybook", "Figma", "GitHub Copilot", "VS Code", "Codespaces", "Jest", "React Testing Library", "Enzyme"]
+    items: ["Storybook", "Git", "CI/CD", "JEST", "Figma"]
   },
   {
-    category: "Data & AI",
-    items: ["Python", "Pandas", "NumPy", "SciPy", "TensorFlow", "Scikit-learn", "BeautifulSoup", "Matplotlib", "Plotly", "Seaborn"]
+    category: "Backend & Server",
+    items: ["Node JS", "Express", "Express JS", "PHP"]
   },
   {
-    category: "Infrastructure & Databases",
-    items: ["MySQL", "PostgreSQL", "MongoDB", "Azure", "Docker", "GitHub CI/CD"]
+    category: "Databases",
+    items: ["SQL", "MongoDB"]
+  },
+  {
+    category: "Other Technologies",
+    items: ["Redux", "Python"]
   }
 ];
