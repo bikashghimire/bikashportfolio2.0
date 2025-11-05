@@ -77,7 +77,7 @@ const Skills: React.FC = () => {
                   <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7">
                     {category.icon}
                   </div>
-                  <span className="hidden xs:inline">{category.name}</span>
+                  <span className="inline text-xs sm:text-sm md:text-base">{category.name}</span>
                 </button>
               ))}
             </div>
