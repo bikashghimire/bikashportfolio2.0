@@ -100,6 +100,13 @@ const Header: React.FC = () => {
             <LanguageToggle />
             <ThemeToggle />
             <div className="w-px h-6 bg-black dark:bg-white"></div>
+            <Button
+              variant="outline"
+              onClick={() => window.print()}
+              className="rounded-full px-4 py-2 border-gray-300 dark:border-gray-600 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              Download Resume
+            </Button>
             {[
               { icon: Github, href: personalInfo.github },
               { icon: Linkedin, href: personalInfo.linkedin },

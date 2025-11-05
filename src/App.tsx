@@ -11,12 +11,14 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Skills from './components/Skills';
+import SEO from './components/SEO';
 import { Button } from '@/components/ui/button';
 import { ArrowUp } from 'lucide-react';
 import './App.css';
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [plausibleLoaded, setPlausibleLoaded] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -31,10 +33,25 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Inject Plausible analytics (domain from current host)
+  useEffect(() => {
+    if (plausibleLoaded) return;
+    const script = document.createElement('script');
+    script.defer = true;
+    script.setAttribute('data-domain', window.location.hostname);
+    script.src = 'https://plausible.io/js/script.js';
+    script.onload = () => setPlausibleLoaded(true);
+    document.head.appendChild(script);
+    return () => {
+      if (script && script.parentNode) script.parentNode.removeChild(script);
+    };
+  }, [plausibleLoaded]);
+
   return (
     <LanguageProvider>
       <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
         <div className="min-h-screen bg-background transition-colors duration-300">
+          <SEO />
           <Header />
           <main>
             <Hero />

@@ -7,6 +7,7 @@ import { projects } from '@/data/portfolio';
 
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [openCaseStudyId, setOpenCaseStudyId] = useState<number | null>(null);
 
   // Get all unique technologies for filtering
   const allTechnologies = useMemo(() => {
@@ -144,6 +145,14 @@ const Projects: React.FC = () => {
                             Demo
                           </a>
                         </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => setOpenCaseStudyId(project.id as number)}
+                        className="py-2.5 px-4 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                      >
+                        Case Study
+                      </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -218,6 +227,14 @@ const Projects: React.FC = () => {
                             Demo
                           </a>
                         </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => setOpenCaseStudyId(project.id as number)}
+                          className="py-2 px-3 text-xs border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                        >
+                          Case Study
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -234,6 +251,36 @@ const Projects: React.FC = () => {
               <Button onClick={() => setActiveFilter('all')} variant="outline" className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
                 View All Projects
               </Button>
+            </div>
+          )}
+          {openCaseStudyId !== null && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/60 dark:bg-white/20" onClick={() => setOpenCaseStudyId(null)} />
+              <div className="relative z-10 max-w-2xl w-[92%] sm:w-[85%] bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl shadow-xl p-6">
+                {(() => {
+                  const project = projects.find(p => (p.id as number) === openCaseStudyId);
+                  if (!project) return null;
+                  return (
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2 text-black dark:text-white">{project.title}</h3>
+                      <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                        <span className="font-semibold">Technologies: </span>
+                        {project.technologies.join(', ')}
+                      </div>
+                      <div className="flex gap-3">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="underline">GitHub</a>
+                        {project.demo && (
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer" className="underline">Live Demo</a>
+                        )}
+                      </div>
+                      <div className="mt-6 flex justify-end">
+                        <Button onClick={() => setOpenCaseStudyId(null)} className="bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200">Close</Button>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
             </div>
           )}
         </div>

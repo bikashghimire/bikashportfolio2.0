@@ -3,3 +3,32 @@
   margin: 0 auto;
   text-align: center;
 }
+
+/* Print-friendly styling for resume */
+@media print {
+  /* Simplify colors and remove shadows */
+  * {
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background: #fff !important;
+  }
+
+  /* Hide navigation and interactive-only elements */
+  header, nav, footer, button, [role="button"], .no-print {
+    display: none !important;
+  }
+
+  /* Expand content to full width for printing */
+  main, section, .container, .mx-auto {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Avoid page breaks inside cards */
+  .card, .Card, .card-content {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
