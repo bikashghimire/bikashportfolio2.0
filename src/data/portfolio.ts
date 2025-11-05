@@ -278,38 +278,80 @@ export const certifications = [
 ];
 
 export const projects = [
+
   {
     id: 1,
+    title: "DSUI",
+    description:"DSUI is a React-based component library that was created using the designs, styling and tokens from the Metso Design System",
+    technologies: ["React", "TypeScript", "SCSS", "Storybook"],
+    image: "src/assets/images/dsui.png",
+    github: "https://github.com/Metso/dsui",
+    demo: "https://modes-react.mogroup.com/?path=/story/overview-introduction--page",
+    featured: true
+  },
+  {
+    id: 2,
+    title: "Mode UI",
+    description: "Modes UI is a web component library that can be used with any framework. It is built with Lit and TypeScript. It includes a wide variety of different components, ranging from data visualization using Chart.js, to a rich text editor using TipTap. The library is used internally across most digital projects at Metso.",
+    technologies: ["Lit", "Web Components", "TypeScript", "Chart.js"],
+    image: "src/assets/images/modes_ui.png",
+    github: "https://github.com/Metso/modes-ui",
+    demo: "https://modes-web.metso.com/",
+    featured: true
+  },
+  {
+    id: 3,
+    title: "Sia Decor Prints",
+    description: "I developed a full fuctional ecommerce store for Sia Decor Prints using Wordpress and WooCommerce.",
+    technologies: ["Wordpress", "WooCommerce", "Stripe"],
+    image: "src/assets/images/siadecorprints.png",
+    github: "https://github.com/bikashghimire/sia-decor-prints",
+    demo: "https://siadecorprints.com.au/",
+    featured: true
+  },
+
+  {
+    id: 4,
     title: "VisionBoard",
     description: "I developed a latent dashboard interface leveraging Next.js, TypeScript, and Shadcn/UI.",
     technologies: ["Next.Js", "TypeScript", "Shadcn/UI"],
-    image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "src/assets/images/visionboard.png",
     github: "https://github.com/bikashghimire/visionboard-shadcn",
     demo: "https://visionboard-shadcn.vercel.app/",
     featured: true
   },
   {
-    id: 2,
+      id: 5,
     title: "Wave of Flavors",
     description: "A website for a restaurant in Helsinki, Finland. It is built with React, TypeScript, and Tailwind CSS.",
     technologies: ["React.Js", "TypeScript", "Shadcn/UI"],
-    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "src/assets/images/wave_of_flavors.png",
     github: "https://github.com/bikashghimire/wave-of-flavors",
     demo: "https://www.waveofflavors.fi/",
     featured: true
   },
   {
-    id: 3,
+      id: 6,
     title: "Dashboard",
     description: "I developed a dashboard interface leveraging Next.js, TypeScript, and Shadcn/UI.",
     technologies: ["Next.Js", "TypeScript", "Shadcn/UI"],
-    image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "src/assets/images/dashboard.png",
     github: "https://github.com/bikashghimire/bikashpress-ui",
     demo: "https://bikashpress-ui.vercel.app/",
     featured: true
   },
   {
-    id: 4,
+    id: 7,
+    title: "Dreamdoors Oman",
+    description: "Dream Doors is based in Muscat and specializes in high-quality ACP exterior doors and a full range of interior doors (WPC, PVC, full-fiber). We combine precision manufacturing, premium materials and expert installation to make your dream villa both luxurious and secure.",
+    technologies: ["React.Js", "TypeScript", "Tailwind CSS"],
+    image: "src/assets/images/dream_doors.png",
+    github: "https://github.com/bikashghimire/dream-doors-oman",
+    demo: "https://dream-doors-oman.vercel.app/",
+    featured: true
+  },
+  {
+      id: 8,
     title: "Bikash Dev Blog",
     description: "I sometimes write stuffs about Front-End development, Design System.",
     technologies: ["Nunjucks", "JavaScript", "CSS"],
@@ -319,7 +361,7 @@ export const projects = [
     featured: false
   },
   {
-    id: 5,
+    id: 9,
     title: "Tapana Oy Website",
     description: "I developed a dashboard interface leveraging Next.js, TypeScript, and Shadcn/UI.",
     technologies: ["HTML", "CSS", "JavaScript"],
@@ -329,7 +371,7 @@ export const projects = [
     featured: false
   },
   {
-    id: 6,
+        id: 10,
     title: "Bikash Dev Website",
     description: "Website for showcasing my portfolio, blog, and other stuffs.",
     technologies: ["TypeScript", "CSS", "JavaScript"],
@@ -339,7 +381,7 @@ export const projects = [
     featured: false
   },
   {
-    id: 7,
+    id: 11,
     title: "Expense Calculator",
     description: "A react app helps with tracking everyday finances! You going to love it.",
     technologies: ["HTML", "CSS", "JavaScript", "React"],
@@ -349,7 +391,7 @@ export const projects = [
     featured: false
   },
   {
-    id: 8,
+    id: 12,
     title: "Serverless React",
     description: "It displays list of countries with their detail information gets data from api",
     technologies: ["React", "JavaScript", "ExpressJS"],
@@ -359,7 +401,7 @@ export const projects = [
     featured: false
   },
   {
-    id: 9,
+    id: 13,
     title: "Ecommerce",
     description: "Fully functioning ecommerce application",
     technologies: ["SASS", "JavaScript", "EJS"],
@@ -369,7 +411,7 @@ export const projects = [
     featured: false
   },
   {
-    id: 10,
+    id: 14,
     title: "Sherpa Food & Bar Website",
     description: "A website for a restaurant in Helsinki",
     technologies: ["BootStrap", "HTML", "CSS"],
@@ -379,7 +421,7 @@ export const projects = [
     featured: false
   },
   {
-    id: 11,
+    id: 15,
     title: "SvelteKit Notebook",
     description: "A NoteBook app based on Sveltekit",
     technologies: ["Sveltekit", "Firebase", "TypeScript"],

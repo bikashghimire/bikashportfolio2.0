@@ -1,6 +1,6 @@
 import React from 'react';
 import { Separator } from '@/components/ui/separator';
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
 import { useLanguage } from '@/hooks/useLanguage';
 import LanguageToggle from './LanguageToggle';
@@ -82,9 +82,6 @@ const Footer: React.FC = () => {
               © {new Date().getFullYear()} {personalInfo.name}. {t('footer.copyright')}
             </p>
             <div className="flex items-center gap-4">
-              <p className="text-black dark:text-white text-sm flex items-center gap-1">
-                {t('footer.madeWith')} <Heart className="h-4 w-4 text-black dark:text-white" /> {t('footer.using')}
-              </p>
               <LanguageToggle />
             </div>
           </div>
