@@ -49,7 +49,7 @@ function App() {
 
   return (
     <LanguageProvider>
-      <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
+      <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
         <div className="min-h-screen bg-background transition-colors duration-300">
           <SEO />
           <Header />

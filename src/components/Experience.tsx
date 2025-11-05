@@ -21,29 +21,27 @@ const Experience: React.FC = () => {
 
           {/* Timeline */}
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
-            
-            <div className="space-y-16">
+            {/* Timeline line (centered on md+) */}
+            <div className="absolute top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700 left-8 md:left-1/2 transform md:-translate-x-1/2"></div>
+
+            <div className="space-y-12 md:space-y-16">
               {experience.map((job, index) => (
-                <div key={job.id} className="relative group">
-                  {/* Timeline dot */}
-                  <div className="absolute left-6 w-4 h-4 bg-gray-600 dark:bg-gray-400 rounded-full border-4 border-white dark:border-black shadow-lg hidden md:block group-hover:scale-125 transition-transform duration-300"></div>
-                  
-                  <Card className="md:ml-20 border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-sm hover:shadow-lg transition-all duration-300">
-                    <CardContent className="p-8 lg:p-10">
+                <div key={job.id} className="relative md:grid md:grid-cols-2">
+                  {/* Timeline dot (centered on md+) */}
+                  <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-3 h-3 bg-gray-600 dark:bg-gray-400 rounded-full border-2 border-white dark:border-black"></div>
+
+                  <div className={`${index % 2 === 0 ? 'md:col-start-1 md:pr-10' : 'md:col-start-2 md:pl-10'} md:pb-0 pb-6`}> 
+                  <Card className="border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-none">
+                    <CardContent className="p-6 lg:p-8">
                       {/* Header with improved layout */}
                       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
                         <div className="flex-1">
                           {/* Company and position info */}
                           <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-3 mb-3">
-                              <div className="p-2 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
+                              <div className="p-2 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-md">
                                 <Building className="h-5 w-5 text-gray-700 dark:text-gray-300" />
                               </div>
-                              <Badge variant="outline" className="text-xs font-medium bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">
-                                {experience.length - index} of {experience.length}
-                              </Badge>
                             </div>
                           </div>
                           
@@ -65,8 +63,8 @@ const Experience: React.FC = () => {
                       </div>
 
                       {/* Description with improved styling */}
-                      <div className="mb-8 p-6 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800">
-                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+                      <div className="mb-6">
+                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                           {job.description}
                         </p>
                       </div>
@@ -75,14 +73,14 @@ const Experience: React.FC = () => {
                       <div className="grid lg:grid-cols-2 gap-8">
                         {/* Achievements */}
                         <div className="space-y-4">
-                          <div className="flex items-center gap-2 mb-6">
-                            <div className="w-8 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
-                            <h5 className="font-bold text-lg text-gray-900 dark:text-white">Key Achievements</h5>
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="w-6 h-px bg-gray-300 dark:bg-gray-700"></div>
+                            <h5 className="font-semibold text-gray-900 dark:text-white">Key Achievements</h5>
                           </div>
                           <ul className="space-y-3">
                             {job.achievements.map((achievement, i) => (
-                              <li key={i} className="flex items-start gap-3 p-4 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">
-                                <CheckCircle className="h-5 w-5 text-gray-700 dark:text-gray-300 mt-0.5 flex-shrink-0" />
+                              <li key={i} className="flex items-start gap-3">
+                                <CheckCircle className="h-4 w-4 text-gray-600 dark:text-gray-400 mt-0.5 flex-shrink-0" />
                                 <span className="text-gray-700 dark:text-gray-300 leading-relaxed">{achievement}</span>
                               </li>
                             ))}
@@ -91,16 +89,16 @@ const Experience: React.FC = () => {
 
                         {/* Technologies */}
                         <div className="space-y-4">
-                          <div className="flex items-center gap-2 mb-6">
-                            <div className="w-8 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
-                            <h5 className="font-bold text-lg text-gray-900 dark:text-white">Technologies Used</h5>
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="w-6 h-px bg-gray-300 dark:bg-gray-700"></div>
+                            <h5 className="font-semibold text-gray-900 dark:text-white">Technologies</h5>
                           </div>
-                          <div className="flex flex-wrap gap-3">
+                          <div className="flex flex-wrap gap-2">
                             {job.technologies.map((tech) => (
                               <Badge 
                                 key={tech} 
                                 variant="outline" 
-                                className="text-sm py-2 px-4 bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300 font-medium"
+                                className="text-xs py-1.5 px-3 bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300"
                               >
                                 {tech}
                               </Badge>
@@ -110,6 +108,7 @@ const Experience: React.FC = () => {
                       </div>
                     </CardContent>
                   </Card>
+                  </div>
                 </div>
               ))}
             </div>

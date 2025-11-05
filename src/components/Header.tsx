@@ -71,15 +71,27 @@ const Header: React.FC = () => {
       
       <header className={`fixed top-0 right-0 w-full z-50 transition-all duration-300 ${
         isScrolled || isMenuOpen
-          ? 'bg-white dark:bg-black backdrop-blur-md border-b-2 border-black dark:border-white shadow-sm' 
+          ? 'bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800' 
           : 'bg-transparent'
       }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <div className="text-xl sm:text-2xl font-bold text-black dark:text-white">
+          <button
+            type="button"
+            aria-label="Go to top"
+            onClick={() => {
+              // Clear hash without reloading and smooth-scroll to top
+              if (window.location.hash) {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+              }
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              setIsMenuOpen(false);
+            }}
+            className="text-xl sm:text-2xl font-bold text-black dark:text-white hover:opacity-80 transition-opacity cursor-pointer"
+          >
             {personalInfo.name}
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">

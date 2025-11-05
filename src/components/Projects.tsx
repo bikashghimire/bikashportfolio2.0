@@ -8,6 +8,8 @@ import { projects } from '@/data/portfolio';
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [openCaseStudyId, setOpenCaseStudyId] = useState<number | null>(null);
+  const [query, setQuery] = useState('');
+  const [sortBy, setSortBy] = useState<'featured' | 'title' | 'tech'>('featured');
 
   // Get all unique technologies for filtering
   const allTechnologies = useMemo(() => {
@@ -18,13 +20,37 @@ const Projects: React.FC = () => {
     return Array.from(techs).sort();
   }, []);
 
-  // Filter projects based on selected technology
+  // Filter, search and sort projects
   const filteredProjects = useMemo(() => {
-    if (activeFilter === 'all') return projects;
-    return projects.filter(project => 
-      project.technologies.some(tech => tech.toLowerCase().includes(activeFilter.toLowerCase()))
-    );
-  }, [activeFilter]);
+    let list = projects;
+    if (activeFilter !== 'all') {
+      list = list.filter(project => 
+        project.technologies.some(tech => tech.toLowerCase().includes(activeFilter.toLowerCase()))
+      );
+    }
+    if (query.trim()) {
+      const q = query.toLowerCase();
+      list = list.filter(p => 
+        p.title.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        (p.technologies || []).some(t => t.toLowerCase().includes(q))
+      );
+    }
+    const sorted = [...list].sort((a, b) => {
+      if (sortBy === 'featured') {
+        if (a.featured === b.featured) return a.title.localeCompare(b.title);
+        return a.featured ? -1 : 1;
+      }
+      if (sortBy === 'title') {
+        return a.title.localeCompare(b.title);
+      }
+      if (sortBy === 'tech') {
+        return (b.technologies?.length || 0) - (a.technologies?.length || 0);
+      }
+      return 0;
+    });
+    return sorted;
+  }, [activeFilter, query, sortBy]);
 
   const featuredProjects = filteredProjects.filter(p => p.featured);
   const otherProjects = filteredProjects.filter(p => !p.featured);
@@ -41,6 +67,31 @@ const Projects: React.FC = () => {
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               A curated selection of projects showcasing innovation and technical excellence
             </p>
+          </div>
+          {/* Controls: Search and Sort */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6">
+            <div className="flex-1">
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search projects, tech, descriptions"
+                aria-label="Search projects"
+                className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-700"
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <label htmlFor="sortBy" className="text-sm text-gray-600 dark:text-gray-400">Sort</label>
+              <select
+                id="sortBy"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as 'featured' | 'title' | 'tech')}
+                className="rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-black text-black dark:text-white px-3 py-2 focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-900"
+              >
+                <option value="featured">Featured</option>
+                <option value="title">Title A–Z</option>
+                <option value="tech">Tech Count</option>
+              </select>
+            </div>
           </div>
           {/* Filter buttons */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -59,7 +110,7 @@ const Projects: React.FC = () => {
                 variant={activeFilter === tech ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setActiveFilter(tech)}
-                className={`transition-all duration-300 hover:scale-105 ${activeFilter === tech ? 'bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black text-white dark:text-black' : 'border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100'}`}
+                className={`transition-colors duration-200 ${activeFilter === tech ? 'bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black text-white dark:text-black' : 'border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100'}`}
               >
                 {tech}
               </Button>
@@ -79,26 +130,19 @@ const Projects: React.FC = () => {
                 {featuredProjects.map((project) => (
                   <Card 
                     key={project.id} 
-                    className="group overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-sm hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2"
+                    className="group overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-none hover:shadow-sm transition-all duration-200"
                   >
                     <div className="aspect-video overflow-hidden relative">
                       <img 
                         src={project.image} 
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" decoding="async"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <Badge className="absolute top-4 right-4 bg-black dark:bg-white text-white dark:text-black border-0 animate-pulse">
+                      <Badge className="absolute top-3 right-3 bg-black dark:bg-white text-white dark:text-black border-0">
                         <Star className="h-3 w-3 mr-1" />
                         Featured
                       </Badge>
-                      {/* Hover overlay with project info */}
-                      <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div className="text-center text-white p-4">
-                          <h4 className="text-lg font-bold mb-2">{project.title}</h4>
-                          <p className="text-sm opacity-90">{project.description}</p>
-                        </div>
-                      </div>
                     </div>
                     <CardContent className="p-8">
                       <h3 className="text-xl font-bold text-black dark:text-white mb-4 transition-colors duration-300">
@@ -173,13 +217,14 @@ const Projects: React.FC = () => {
                 {otherProjects.map((project) => (
                   <Card 
                     key={project.id} 
-                    className="group overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                    className="group overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-none hover:shadow-sm transition-all duration-200"
                   >
                     <div className="aspect-video overflow-hidden">
                       <img 
                         src={project.image} 
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy" decoding="async"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.01]"
                       />
                     </div>
                     <CardContent className="p-6">
