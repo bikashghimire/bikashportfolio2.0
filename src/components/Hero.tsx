@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
           <Badge variant="secondary" className="flex items-center gap-2 px-6 py-2 text-sm font-medium bg-white/80 dark:bg-black/80 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 shadow-sm">
             <MapPin className="h-4 w-4 text-gray-700 dark:text-gray-300" />
             <span className="hidden xs:inline">{personalInfo.location}</span>
-            <span className="xs:hidden">SF, CA</span>
+            <span className="xs:hidden">Oulu, Finland</span>
           </Badge>
         </div>
         {/* Main heading with accent color */}
