@@ -1,3 +1,11 @@
+import dsuiImage from '@/assets/images/dsui.png';
+import modesUiImage from '@/assets/images/modes_ui.png';
+import siaDecorImage from '@/assets/images/siadecorprints.png';
+import visionboardImage from '@/assets/images/visionboard.png';
+import waveOfFlavorsImage from '@/assets/images/wave_of_flavors.png';
+import dashboardImage from '@/assets/images/dashboard.png';
+import dreamDoorsImage from '@/assets/images/dream_doors.png';
+
 export const personalInfo = {
   name: "Bikash Ghimire",
   title: "Software Developer",
@@ -284,7 +292,7 @@ export const projects = [
     title: "DSUI",
     description:"DSUI is a React-based component library that was created using the designs, styling and tokens from the Metso Design System",
     technologies: ["React", "TypeScript", "SCSS", "Storybook"],
-    image: "src/assets/images/dsui.png",
+    image: dsuiImage,
     github: "https://github.com/Metso/dsui",
     demo: "https://modes-react.mogroup.com/?path=/story/overview-introduction--page",
     featured: true
@@ -294,7 +302,7 @@ export const projects = [
     title: "Mode UI",
     description: "Modes UI is a web component library that can be used with any framework. It is built with Lit and TypeScript. It includes a wide variety of different components, ranging from data visualization using Chart.js, to a rich text editor using TipTap. The library is used internally across most digital projects at Metso.",
     technologies: ["Lit", "Web Components", "TypeScript", "Chart.js"],
-    image: "src/assets/images/modes_ui.png",
+    image: modesUiImage,
     github: "https://github.com/Metso/modes-ui",
     demo: "https://modes-web.metso.com/",
     featured: true
@@ -304,7 +312,7 @@ export const projects = [
     title: "Sia Decor Prints",
     description: "I developed a full fuctional ecommerce store for Sia Decor Prints using Wordpress and WooCommerce.",
     technologies: ["Wordpress", "WooCommerce", "Stripe"],
-    image: "src/assets/images/siadecorprints.png",
+    image: siaDecorImage,
     github: "https://github.com/bikashghimire/sia-decor-prints",
     demo: "https://siadecorprints.com.au/",
     featured: true
@@ -315,7 +323,7 @@ export const projects = [
     title: "VisionBoard",
     description: "I developed a latent dashboard interface leveraging Next.js, TypeScript, and Shadcn/UI.",
     technologies: ["Next.Js", "TypeScript", "Shadcn/UI"],
-    image: "src/assets/images/visionboard.png",
+    image: visionboardImage,
     github: "https://github.com/bikashghimire/visionboard-shadcn",
     demo: "https://visionboard-shadcn.vercel.app/",
     featured: true
@@ -325,7 +333,7 @@ export const projects = [
     title: "Wave of Flavors",
     description: "A website for a restaurant in Helsinki, Finland. It is built with React, TypeScript, and Tailwind CSS.",
     technologies: ["React.Js", "TypeScript", "Shadcn/UI"],
-    image: "src/assets/images/wave_of_flavors.png",
+    image: waveOfFlavorsImage,
     github: "https://github.com/bikashghimire/wave-of-flavors",
     demo: "https://www.waveofflavors.fi/",
     featured: true
@@ -335,7 +343,7 @@ export const projects = [
     title: "Dashboard",
     description: "I developed a dashboard interface leveraging Next.js, TypeScript, and Shadcn/UI.",
     technologies: ["Next.Js", "TypeScript", "Shadcn/UI"],
-    image: "src/assets/images/dashboard.png",
+    image: dashboardImage,
     github: "https://github.com/bikashghimire/bikashpress-ui",
     demo: "https://bikashpress-ui.vercel.app/",
     featured: true
@@ -345,7 +353,7 @@ export const projects = [
     title: "Dreamdoors Oman",
     description: "Dream Doors is based in Muscat and specializes in high-quality ACP exterior doors and a full range of interior doors (WPC, PVC, full-fiber). We combine precision manufacturing, premium materials and expert installation to make your dream villa both luxurious and secure.",
     technologies: ["React.Js", "TypeScript", "Tailwind CSS"],
-    image: "src/assets/images/dream_doors.png",
+    image: dreamDoorsImage,
     github: "https://github.com/bikashghimire/dream-doors-oman",
     demo: "https://dream-doors-oman.vercel.app/",
     featured: true
