@@ -34,10 +34,10 @@ const skills: Skill[] = [
 ];
 
 const categories = [
-  { id: 'frontend', name: 'Frontend', icon: <Code className="h-4 w-4 text-black dark:text-white" /> },
-  { id: 'backend', name: 'Backend', icon: <Cpu className="h-4 w-4 text-black dark:text-white" /> },
-  { id: 'database', name: 'Database', icon: <Database className="h-4 w-4 text-black dark:text-white" /> },
-  { id: 'cloud', name: 'Cloud & DevOps', icon: <Cloud className="h-4 w-4 text-black dark:text-white" /> },
+  { id: 'frontend', name: 'Frontend', icon: <Code className="h-4 w-4" /> },
+  { id: 'backend', name: 'Backend', icon: <Cpu className="h-4 w-4" /> },
+  { id: 'database', name: 'Database', icon: <Database className="h-4 w-4" /> },
+  { id: 'cloud', name: 'Cloud & DevOps', icon: <Cloud className="h-4 w-4" /> },
 ];
 
 const Skills: React.FC = () => {
@@ -68,11 +68,20 @@ const Skills: React.FC = () => {
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 py-4 text-sm sm:text-base rounded-xl transition-all duration-300 font-semibold ${
+                  className={`flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 py-3.5 text-sm sm:text-base rounded-xl transition-colors duration-200 font-semibold border ${
                     activeCategory === category.id
-                      ? 'bg-black dark:bg-white text-white dark:text-black shadow-lg transform scale-105'
-                      : 'bg-transparent text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      ? 'bg-black dark:bg-white text-white dark:text-black border-black dark:border-white'
+                      : 'bg-transparent text-gray-900 dark:text-gray-100 border-transparent hover:bg-gray-100 dark:hover:bg-gray-900 hover:border-gray-300 dark:hover:border-gray-700'
                   }`}
+                  aria-pressed={activeCategory === category.id}
+                  role="tab"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setActiveCategory(category.id);
+                    }
+                  }}
                 >
                   <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7">
                     {category.icon}
@@ -88,7 +97,7 @@ const Skills: React.FC = () => {
                 <Card className="border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-xl rounded-3xl overflow-hidden">
                   <CardContent className="p-8 sm:p-10 lg:p-12">
                     <div className="flex items-center gap-4 mb-8">
-                      <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl">
+                    <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl text-black dark:text-white">
                         {category.icon}
                       </div>
                       <div>
