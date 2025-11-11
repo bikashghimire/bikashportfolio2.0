@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowDown, Download, MapPin } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { personalInfo } from '@/data/portfolio';
+import resumePdf from '@/assets/images/ghimire_bikash_cv.pdf';
 
 const ACCENT = 'bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black text-white dark:text-black';
 const ACCENT_TEXT = 'text-black dark:text-white';
@@ -11,6 +12,23 @@ const ACCENT_TEXT = 'text-black dark:text-white';
 const Hero: React.FC = () => {
   const { t } = useLanguage();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const downloadResume = async () => {
+    try {
+      const response = await fetch(resumePdf);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'ghimire_bikash_cv.pdf';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch {
+      window.open(resumePdf, '_blank');
+    }
+  };
 
   const scrollToAbout = () => {
     const element = document.querySelector('#about');
@@ -113,6 +131,7 @@ const Hero: React.FC = () => {
           <Button
             size="lg"
             variant="outline"
+            onClick={downloadResume}
             className="group w-full xs:w-auto px-10 py-6 text-xl font-semibold rounded-xl border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-md"
           >
             <Download className="h-6 w-6 mr-3 group-hover:animate-bounce text-gray-700 dark:text-gray-300" />

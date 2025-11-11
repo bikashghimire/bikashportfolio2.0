@@ -12,6 +12,24 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useLanguage();
 
+  const downloadResume = async () => {
+    try {
+      const response = await fetch(resumePdf);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'ghimire_bikash_cv.pdf';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch {
+      // Fallback to opening the file if download fails
+      window.open(resumePdf, '_blank');
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -115,12 +133,10 @@ const Header: React.FC = () => {
             <div className="w-px h-6 bg-black dark:bg-white"></div>
             <Button
               variant="outline"
-              asChild
+              onClick={downloadResume}
               className="rounded-full px-4 py-2 border-gray-300 dark:border-gray-600 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
             >
-              <a href={resumePdf} download="ghimire_bikash_cv.pdf">
-                Download Resume
-              </a>
+              Download Resume
             </Button>
             {[
               { icon: Github, href: personalInfo.github },
