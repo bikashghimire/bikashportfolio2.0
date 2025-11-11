@@ -88,7 +88,7 @@ const Header: React.FC = () => {
         />
       )}
       
-      <header className={`fixed top-0 right-0 w-full z-50 transition-all duration-300 ${
+      <header className={`fixed top-0 right-0 w-full z-50 transition-all duration-300 backdrop-blur-sm ${
         isScrolled || isMenuOpen
           ? 'bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800' 
           : 'bg-transparent'
@@ -113,21 +113,20 @@ const Header: React.FC = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-2">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-black dark:text-white hover:opacity-70 transition-opacity font-medium relative group"
+                className="text-gray-900 dark:text-gray-100 font-medium relative px-3 py-2 rounded-md transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 dark:focus-visible:ring-gray-700"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3">
             <LanguageToggle />
             <ThemeToggle />
             <div className="w-px h-6 bg-black dark:bg-white"></div>
@@ -143,16 +142,22 @@ const Header: React.FC = () => {
               { icon: Linkedin, href: personalInfo.linkedin },
               { icon: Mail, href: `mailto:${personalInfo.email}` }
             ].map((social, index) => (
-              <Button key={index} variant="ghost" size="icon" asChild className="text-black dark:text-white hover:opacity-70 transition-opacity">
+              <Button 
+                key={index} 
+                variant="ghost" 
+                size="icon" 
+                asChild 
+                className="text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900 border border-transparent hover:border-gray-300 dark:hover:border-gray-700 rounded-full transition-colors"
+              >
                 <a href={social.href} target="_blank" rel="noopener noreferrer">
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="h-5 w-5" aria-hidden="true" />
                 </a>
               </Button>
             ))}
           </div>
 
           {/* Mobile Actions - Fixed spacing and accessibility */}
-          <div className="lg:hidden flex items-center space-x-3">
+          <div className="lg:hidden flex items-center space-x-2">
             <LanguageToggle />
             <ThemeToggle />
             <Button
@@ -179,7 +184,7 @@ const Header: React.FC = () => {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-black dark:text-white hover:opacity-70 transition-opacity font-medium py-3 px-4 rounded-md w-full"
+                  className="text-left text-gray-900 dark:text-gray-100 font-medium py-3 px-4 rounded-md w-full transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 dark:focus-visible:ring-gray-700"
                 >
                   {item.label}
                 </button>
@@ -197,7 +202,7 @@ const Header: React.FC = () => {
                     variant="ghost" 
                     size="icon" 
                     asChild 
-                    className="text-black dark:text-white hover:opacity-70 transition-opacity w-12 h-12"
+                    className="text-gray-900 dark:text-gray-100 w-12 h-12 rounded-full hover:bg-gray-100 dark:hover:bg-gray-900 border border-transparent hover:border-gray-300 dark:hover:border-gray-700 transition-colors"
                   >
                     <a 
                       href={social.href} 
@@ -205,7 +210,7 @@ const Header: React.FC = () => {
                       rel="noopener noreferrer"
                       aria-label={social.label}
                     >
-                      <social.icon className="h-5 w-5" />
+                      <social.icon className="h-5 w-5" aria-hidden="true" />
                     </a>
                   </Button>
                 ))}
