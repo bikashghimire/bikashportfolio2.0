@@ -5,6 +5,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import LanguageToggle from '@/components/LanguageToggle';
 import { useLanguage } from '@/hooks/useLanguage';
 import { personalInfo } from '@/data/portfolio';
+import resumePdf from '@/assets/images/ghimire_bikash_cv.pdf';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -114,10 +115,12 @@ const Header: React.FC = () => {
             <div className="w-px h-6 bg-black dark:bg-white"></div>
             <Button
               variant="outline"
-              onClick={() => window.print()}
+              asChild
               className="rounded-full px-4 py-2 border-gray-300 dark:border-gray-600 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
             >
-              Download Resume
+              <a href={resumePdf} download="ghimire_bikash_cv.pdf">
+                Download Resume
+              </a>
             </Button>
             {[
               { icon: Github, href: personalInfo.github },
