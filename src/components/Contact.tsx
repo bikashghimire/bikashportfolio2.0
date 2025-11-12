@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,25 +9,7 @@ import { Mail, MapPin, Github, Linkedin, Send, MessageCircle, ArrowRight } from 
 import { personalInfo } from '@/data/portfolio';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
+  const [state, handleSubmit] = useForm('mqawaaob');
 
   return (
     <section id="contact" className="relative py-20 sm:py-24 lg:py-32 bg-white dark:bg-black overflow-hidden">
@@ -159,64 +142,108 @@ const Contact: React.FC = () => {
                   </p>
                 </div>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-sm font-bold uppercase tracking-wide text-black dark:text-white">
-                      Name *
-                    </Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="h-12 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 rounded-lg transition-all duration-300 font-medium"
-                      placeholder="Your name"
-                    />
+                {state.succeeded ? (
+                  <div className="p-8 text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-green-50 dark:bg-green-900/20 border-2 border-green-500 dark:border-green-400 rounded-full">
+                      <Send className="w-8 h-8 text-green-600 dark:text-green-400" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-black mb-3 text-black dark:text-white">
+                      Message Sent!
+                    </h3>
+                    <p className="text-green-700 dark:text-green-300 font-medium">
+                      Thank you for your message! I'll get back to you within 24 hours.
+                    </p>
                   </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-bold uppercase tracking-wide text-black dark:text-white">
-                      Email *
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="h-12 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 rounded-lg transition-all duration-300 font-medium"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm font-bold uppercase tracking-wide text-black dark:text-white">
-                      Message *
-                    </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={6}
-                      className="bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 resize-none rounded-lg transition-all duration-300 font-medium"
-                      placeholder="Tell me about your project..."
-                    />
-                  </div>
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full h-14 bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black border-2 border-black dark:border-white text-white dark:text-black font-black uppercase tracking-wide rounded-xl transition-all duration-300 group relative overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]"
-                  >
-                    <span className="relative z-10 flex items-center justify-center">
-                      <Send className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
-                      Send Message
-                    </span>
-                  </Button>
-                </form>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-sm font-bold uppercase tracking-wide text-black dark:text-white">
+                        Name *
+                      </Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        required
+                        className="h-12 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 rounded-lg transition-all duration-300 font-medium"
+                        placeholder="Your name"
+                      />
+                      <ValidationError 
+                        prefix="Name" 
+                        field="name"
+                        errors={state.errors}
+                        className="text-red-600 dark:text-red-400 text-sm mt-1"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-sm font-bold uppercase tracking-wide text-black dark:text-white">
+                        Email *
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        className="h-12 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 rounded-lg transition-all duration-300 font-medium"
+                        placeholder="your@email.com"
+                      />
+                      <ValidationError 
+                        prefix="Email" 
+                        field="email"
+                        errors={state.errors}
+                        className="text-red-600 dark:text-red-400 text-sm mt-1"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="message" className="text-sm font-bold uppercase tracking-wide text-black dark:text-white">
+                        Message *
+                      </Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={6}
+                        className="bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 resize-none rounded-lg transition-all duration-300 font-medium"
+                        placeholder="Tell me about your project..."
+                      />
+                      <ValidationError 
+                        prefix="Message" 
+                        field="message"
+                        errors={state.errors}
+                        className="text-red-600 dark:text-red-400 text-sm mt-1"
+                      />
+                    </div>
+
+                    {state.errors && Object.keys(state.errors).length > 0 && (
+                      <div className="p-4 bg-red-50 dark:bg-red-900/20 border-2 border-red-500 dark:border-red-400 rounded-lg">
+                        <p className="text-red-700 dark:text-red-300 font-medium text-center">
+                          Please fix the errors above and try again.
+                        </p>
+                      </div>
+                    )}
+
+                    <Button 
+                      type="submit" 
+                      disabled={state.submitting}
+                      className="w-full h-14 bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black border-2 border-black dark:border-white text-white dark:text-black font-black uppercase tracking-wide rounded-xl transition-all duration-300 group relative overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <span className="relative z-10 flex items-center justify-center">
+                        {state.submitting ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white dark:border-black border-t-transparent rounded-full animate-spin mr-2"></div>
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
+                            Send Message
+                          </>
+                        )}
+                      </span>
+                    </Button>
+                  </form>
+                )}
               </CardContent>
             </Card>
           </div>
