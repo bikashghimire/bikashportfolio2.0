@@ -1,15 +1,129 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Mail, MapPin, Github, Linkedin, Send, MessageCircle, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, Send, MessageCircle, ArrowRight, CheckCircle } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
 
-const Contact: React.FC = () => {
+// Separate form component that can be remounted
+const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
   const [state, handleSubmit] = useForm('mqawaaob');
+
+  useEffect(() => {
+    if (state.succeeded) {
+      onSuccess();
+    }
+  }, [state.succeeded, onSuccess]);
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="space-y-2">
+        <label htmlFor="name" className="block text-sm font-bold uppercase tracking-wide text-black dark:text-white">
+          Name *
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          className="w-full h-12 px-4 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 rounded-lg transition-all duration-300 font-medium"
+          placeholder="Your name"
+        />
+        <ValidationError 
+          prefix="Name" 
+          field="name"
+          errors={state.errors}
+          className="text-red-600 dark:text-red-400 text-sm mt-1"
+        />
+      </div>
+      
+      <div className="space-y-2">
+        <label htmlFor="email" className="block text-sm font-bold uppercase tracking-wide text-black dark:text-white">
+          Email *
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          className="w-full h-12 px-4 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 rounded-lg transition-all duration-300 font-medium"
+          placeholder="your@email.com"
+        />
+        <ValidationError 
+          prefix="Email" 
+          field="email"
+          errors={state.errors}
+          className="text-red-600 dark:text-red-400 text-sm mt-1"
+        />
+      </div>
+      
+      <div className="space-y-2">
+        <label htmlFor="message" className="block text-sm font-bold uppercase tracking-wide text-black dark:text-white">
+          Message *
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows={6}
+          className="w-full px-4 py-3 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 resize-none rounded-lg transition-all duration-300 font-medium"
+          placeholder="Tell me about your project..."
+        />
+        <ValidationError 
+          prefix="Message" 
+          field="message"
+          errors={state.errors}
+          className="text-red-600 dark:text-red-400 text-sm mt-1"
+        />
+      </div>
+
+      {state.errors && Object.keys(state.errors).length > 0 && (
+        <div className="p-4 bg-red-50 dark:bg-red-900/20 border-2 border-red-500 dark:border-red-400 rounded-lg">
+          <p className="text-red-700 dark:text-red-300 font-medium text-center">
+            Please fix the errors above and try again.
+          </p>
+        </div>
+      )}
+
+      <button
+        type="submit"
+        disabled={state.submitting}
+        className="w-full h-14 bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black border-2 border-black dark:border-white text-white dark:text-black font-black uppercase tracking-wide rounded-xl transition-all duration-300 group relative overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+      >
+        {state.submitting ? (
+          <>
+            <div className="w-5 h-5 border-2 border-white dark:border-black border-t-transparent rounded-full animate-spin mr-2"></div>
+            Sending...
+          </>
+        ) : (
+          <>
+            <Send className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
+            Send Message
+          </>
+        )}
+      </button>
+    </form>
+  );
+};
+
+const Contact: React.FC = () => {
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [formKey, setFormKey] = useState(0);
+
+  // Reset form after showing success message
+  useEffect(() => {
+    if (showSuccess) {
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+        // Reset the form by changing the key to force re-mount
+        setFormKey(prev => prev + 1);
+      }, 2500); // Show success message for 2.5 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccess]);
+
+  const handleFormSuccess = () => {
+    setShowSuccess(true);
+  };
 
   return (
     <section id="contact" className="relative py-20 sm:py-24 lg:py-32 bg-white dark:bg-black overflow-hidden">
@@ -142,107 +256,20 @@ const Contact: React.FC = () => {
                   </p>
                 </div>
                 
-                {state.succeeded ? (
+                {showSuccess ? (
                   <div className="p-8 text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-green-50 dark:bg-green-900/20 border-2 border-green-500 dark:border-green-400 rounded-full">
-                      <Send className="w-8 h-8 text-green-600 dark:text-green-400" />
+                    <div className="inline-flex items-center justify-center w-20 h-20 mb-6 bg-green-50 dark:bg-green-900/20 border-2 border-green-500 dark:border-green-400 rounded-full">
+                      <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-black mb-3 text-black dark:text-white">
-                      Message Sent!
+                      Thank You!
                     </h3>
                     <p className="text-green-700 dark:text-green-300 font-medium">
-                      Thank you for your message! I'll get back to you within 24 hours.
+                      Your form has been submitted successfully. I'll get back to you within 24 hours.
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-sm font-bold uppercase tracking-wide text-black dark:text-white">
-                        Name *
-                      </Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        required
-                        className="h-12 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 rounded-lg transition-all duration-300 font-medium"
-                        placeholder="Your name"
-                      />
-                      <ValidationError 
-                        prefix="Name" 
-                        field="name"
-                        errors={state.errors}
-                        className="text-red-600 dark:text-red-400 text-sm mt-1"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-sm font-bold uppercase tracking-wide text-black dark:text-white">
-                        Email *
-                      </Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        className="h-12 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 rounded-lg transition-all duration-300 font-medium"
-                        placeholder="your@email.com"
-                      />
-                      <ValidationError 
-                        prefix="Email" 
-                        field="email"
-                        errors={state.errors}
-                        className="text-red-600 dark:text-red-400 text-sm mt-1"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="message" className="text-sm font-bold uppercase tracking-wide text-black dark:text-white">
-                        Message *
-                      </Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        required
-                        rows={6}
-                        className="bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 resize-none rounded-lg transition-all duration-300 font-medium"
-                        placeholder="Tell me about your project..."
-                      />
-                      <ValidationError 
-                        prefix="Message" 
-                        field="message"
-                        errors={state.errors}
-                        className="text-red-600 dark:text-red-400 text-sm mt-1"
-                      />
-                    </div>
-
-                    {state.errors && Object.keys(state.errors).length > 0 && (
-                      <div className="p-4 bg-red-50 dark:bg-red-900/20 border-2 border-red-500 dark:border-red-400 rounded-lg">
-                        <p className="text-red-700 dark:text-red-300 font-medium text-center">
-                          Please fix the errors above and try again.
-                        </p>
-                      </div>
-                    )}
-
-                    <Button 
-                      type="submit" 
-                      disabled={state.submitting}
-                      className="w-full h-14 bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black border-2 border-black dark:border-white text-white dark:text-black font-black uppercase tracking-wide rounded-xl transition-all duration-300 group relative overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      <span className="relative z-10 flex items-center justify-center">
-                        {state.submitting ? (
-                          <>
-                            <div className="w-5 h-5 border-2 border-white dark:border-black border-t-transparent rounded-full animate-spin mr-2"></div>
-                            Sending...
-                          </>
-                        ) : (
-                          <>
-                            <Send className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
-                            Send Message
-                          </>
-                        )}
-                      </span>
-                    </Button>
-                  </form>
+                  <ContactForm key={formKey} onSuccess={handleFormSuccess} />
                 )}
               </CardContent>
             </Card>
